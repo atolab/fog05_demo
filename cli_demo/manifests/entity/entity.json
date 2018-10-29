@@ -1,0 +1,85 @@
+{
+  "name": "example entity",
+  "type": "entity",
+  "uuid": "2c196ce5-b64b-421b-b76a-b877d09efca2",
+  "version": 1,
+  "dependencies": [],
+  "export": false,
+  "networks": [
+    {
+      "name": "demo network",
+      "uuid": "2c4e946a-ed83-41cd-ac3d-42d8b806f546",
+      "nodes": [
+        "297b270c79eb45089b6979f86fbdaa96",
+        "90c02ec42f2a47448d5f8e33ad7bf7e2"
+      ],
+      "network_type": "vxlan",
+      "overlay_info": {
+        "vxlan_id": 5,
+        "multicast_address": "239.0.0.5"
+      }
+    }
+  ],
+  "components": [
+    {
+      "name": "gateway",
+      "node": "297b270c79eb45089b6979f86fbdaa96",
+      "need": [],
+      "manifest": {
+        "name": "gateway",
+        "version": 1,
+        "type": "lxd",
+        "uuid": "0be550dc-d9c4-11e7-aa21-d3df37fbfcfa",
+        "entity_data": {
+          "name": "gateway",
+          "uuid": "0be550dc-d9c4-11e7-aa21-d3df37fbfcfa",
+          "cpu": 1,
+          "memory": 512,
+          "disk_size": 5,
+          "base_image": "file:///home/ubuntu/gateway.tar.gz",
+          "networks": [
+            {
+              "intf_name": "wan",
+              "br_name": "lxdbr0"
+            },
+            {
+              "intf_name": "mgmt",
+              "network_uuid": "2c4e946a-ed83-41cd-ac3d-42d8b806f546"
+            }
+          ],
+          "user-data": "",
+          "ssh-key": ""
+        }
+      }
+    },
+    {
+      "name": "cirros034kvm",
+      "node": "90c02ec42f2a47448d5f8e33ad7bf7e2",
+      "need": [
+        "gateway"
+      ],
+      "manifest": {
+        "name": "cirros034kvm",
+        "version": 1,
+        "type": "kvm",
+        "uuid": "9fa75e6a-d9c3-11e7-b769-5f3db30f0c2e",
+        "entity_data": {
+          "name": "cirros034kvm",
+          "uuid": "9fa75e6a-d9c3-11e7-b769-5f3db30f0c2e",
+          "cpu": 1,
+          "memory": 512,
+          "disk_size": 1,
+          "base_image": "file:///home/ubuntu/brain.qcow2",
+          "networks": [
+            {
+              "mac": "d2:e3:ed:6f:e3:ef",
+              "network_uuid": "2c4e946a-ed83-41cd-ac3d-42d8b806f546"
+            }
+          ],
+          "user-data": "",
+          "ssh-key": ""
+        }
+      }
+    }
+  ]
+}

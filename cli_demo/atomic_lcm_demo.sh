@@ -9,51 +9,57 @@ CLI=/Users/gabri/Workspace/fos-agent-ng/_build/default/src/fos/fos-cli-ng/fos_cl
 
 IU=$(uuidgen)
 
-printf "\nNode list - fos-cli-ng node list"
+printf "\nNode list - fos-cli-ng node list\n"
 
 $CLI node list
 
 read -n 1 -s -r -p "Press any key to continue"
-
-printf "\nNode plugin - fos-cli-ng plugin list --nu $1"
+printf "\n"
+printf "\nNode plugin - fos-cli-ng plugin list --nu $1\n"
 
 $CLI plugin list --nu $1
 
 read -n 1 -s -r -p "Press any key to continue"
+printf "\n"
 
-printf "\nDefine entity - fos-cli-ng entity define --nu $1 -m $2"
+printf "\nDefine atomic entity - fos-cli-ng entity define --nu $1 -m $2\n"
 
 $CLI entity define --nu $1 -m $2
 
 read -n 1 -s -r -p "Press any key to continue"
+printf "\n"
 
-
-printf "\Configure entity- fos-cli-ng entity configure --nu $1 --eu $3 --iu $IU"
+printf "\nConfigure atomic entity - fos-cli-ng entity configure --nu $1 --eu $3 --iu $IU\n"
 
 $CLI entity configure --nu $1 --eu $3 --iu $IU
 
 read -n 1 -s -r -p "Press any key to continue"
+printf "\n"
 
-printf "\Run entity- fos-cli-ng entity run --nu $1 --eu $3 --iu $IU"
+printf "\nRun atomic entity - fos-cli-ng entity run --nu $1 --eu $3 --iu $IU\n"
 
 $CLI entity run --nu $1 --eu $3 --iu $IU
 
 read -n 1 -s -r -p "Press any key to continue"
+printf "\n"
 
-printf "\Stop entity- fos-cli-ng entity stop --nu $1 --eu $3 --iu $IU"
+printf "\nStop atomic entity - fos-cli-ng entity stop --nu $1 --eu $3 --iu $IU\n"
 
 $CLI entity stop --nu $1 --eu $3 --iu $IU
 
 read -n 1 -s -r -p "Press any key to continue"
+printf "\n"
 
-printf "\Clean entity- fos-cli-ng entity clean --nu $1 --eu $3 --iu $IU"
+printf "\nClean entity- fos-cli-ng entity clean --nu $1 --eu $3 --iu $IU\n"
 
 $CLI entity clean --nu $1 --eu $3 --iu $IU
 
 read -n 1 -s -r -p "Press any key to continue"
+printf "\n"
 
-printf "\Undefine entity- fos-cli-ng entity undefine --nu $1 --eu $3"
+printf "\nUndefine atomic entity - fos-cli-ng entity undefine --nu $1 --eu $3\n"
 
 $CLI entity undefine --nu $1 --eu $3
 
-read -n 1 -s -r -p "Press any key to continue"
+read -n 1 -s -r -p "Press any key to exit"
+printf "\n"

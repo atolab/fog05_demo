@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# 
+# To merge KVM disk file use   
+# cat manifest/entity/kvm_img/x* > manifest/entity/brain.qcow2
+#
+
 if [ "$#" -ne 2 ]; then
     echo "[usage] cli_demo.sh <entity manifest path> <entity uuid>"
     exit -1

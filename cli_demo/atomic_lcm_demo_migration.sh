@@ -1,12 +1,11 @@
 #!/bin/bash
 
-if [ "$#" -ne 3 ]; then
-    echo "[usage] cli_demo.sh <node id> <manifest path> <atomic entity uuid>"
+if [ "$#" -ne 4 ]; then
+    echo "[usage] cli_demo.sh <node id> <manifest path> <atomic entity uuid> <destination node id>"
     exit -1
 fi
 
 CLI=/Users/gabri/Workspace/fos-agent-ng/_build/default/src/fos/fos-cli-ng/fos_cli_ng.exe
-
 IU=$(echo "$(uuidgen)" | tr '[:upper:]' '[:lower:]')
 
 
@@ -44,22 +43,31 @@ $CLI entity run --nu $1 --eu $3 --iu $IU
 read -n 1 -s -r -p "Press any key to continue"
 printf "\n"
 
-printf "\nStop atomic entity - fos-cli-ng entity stop --nu $1 --eu $3 --iu $IU\n"
 
-$CLI entity stop --nu $1 --eu $3 --iu $IU
+printf "\Migrate atomic entity - fos-cli-ng entity migrate --nu $1 --eu $3 --iu $IU --du $4\n"
 
-read -n 1 -s -r -p "Press any key to continue"
-printf "\n"
-
-printf "\nClean entity- fos-cli-ng entity clean --nu $1 --eu $3 --iu $IU\n"
-
-$CLI entity clean --nu $1 --eu $3 --iu $IU
+$CLI entity migrate --nu $1 --eu $3 --iu $IU --du $4
 
 read -n 1 -s -r -p "Press any key to continue"
 printf "\n"
 
-printf "\nUndefine atomic entity - fos-cli-ng entity undefine --nu $1 --eu $3\n"
+printf "\nStop atomic entity - fos-cli-ng entity stop --nu $4 --eu $3 --iu $IU\n"
 
+$CLI entity stop --nu $4 --eu $3 --iu $IU
+
+read -n 1 -s -r -p "Press any key to continue"
+printf "\n"
+
+printf "\nClean entity- fos-cli-ng entity clean --nu $4 --eu $3 --iu $IU\n"
+
+$CLI entity clean --nu $4 --eu $3 --iu $IU
+
+read -n 1 -s -r -p "Press any key to continue"
+printf "\n"
+
+printf "\nUndefine atomic entity - fos-cli-ng entity undefine --nu $4 --eu $3\n"
+
+$CLI entity undefine --nu $4 --eu $3
 $CLI entity undefine --nu $1 --eu $3
 
 read -n 1 -s -r -p "Press any key to exit"

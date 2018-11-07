@@ -1,0 +1,164 @@
+{
+    "name": "fos demo ap on rpi",
+    "type": "entity",
+    "uuid": "2c196ce5-b64b-421b-b76a-b877d09efca2",
+    "version": 1,
+    "networks": [
+        {
+            "name": "demo network",
+            "uuid": "2c4e946a-ed83-41cd-ac3d-42d8b806f546",
+            "vxlan_id": 5,
+            "multicast_address": "239.0.0.5",
+            "nodes": [
+                "0b5fe84438ed48e3b927bc4855f43682",
+                "1268bdc9784d43f9baecfd36b3d587b5"
+            ]
+        }
+    ],
+    "components": [
+        {
+            "name": "broker",
+            "node": "19f351bad47649138b452a0945fd345b",
+            "need": [
+                "gateway"
+            ],
+            "manifest": {
+                "name": "broker",
+                "version": 1,
+                "type": "lxd",
+                "uuid": "f6217185-8466-4450-b816-677af9590434",
+                "entity_data": {
+                    "name": "broker",
+                    "uuid": "f6217185-8466-4450-b816-677af9590434",
+                    "cpu": 1,
+                    "memory": 512,
+                    "disk_size": 5,
+                    "base_image": "file:///home/ato/broker.tar.gz",
+                    "networks": [
+                        {
+                            "intf_name": "eth0",
+                            "br_name": "lxdbr0"
+                        }
+                    ],
+                    "user-data": "",
+                    "ssh-key": ""
+                }
+            }
+        },
+        {
+            "name": "smarthome",
+            "node": "297b270c79eb45089b6979f86fbdaa96",
+            "need": [
+                "gateway",
+                "broker"
+            ],
+            "manifest": {
+                "name": "smarthome",
+                "version": 1,
+                "type": "lxd",
+                "uuid": "bdc08e96-36f0-4b14-ae0c-68881a467dc4",
+                "entity_data": {
+                    "name": "smarthome",
+                    "uuid": "bdc08e96-36f0-4b14-ae0c-68881a467dc4",
+                    "cpu": 1,
+                    "memory": 512,
+                    "disk_size": 5,
+                    "base_image": "file:///home/ubuntu/smarthome.tar.gz",
+                    "networks": [
+                        {
+                            "intf_name": "eth0",
+                            "br_name": "lxdbr0"
+                        }
+                    ],
+                    "user-data": "",
+                    "ssh-key": ""
+                }
+            }
+        },
+        {
+            "name": "gateway",
+            "node": "0b5fe84438ed48e3b927bc4855f43682",
+            "need": [],
+            "manifest": {
+                "name": "gateway",
+                "version": 1,
+                "type": "lxd",
+                "uuid": "0be550dc-d9c4-11e7-aa21-d3df37fbfcfa",
+                "entity_data": {
+                    "name": "gateway",
+                    "uuid": "0be550dc-d9c4-11e7-aa21-d3df37fbfcfa",
+                    "cpu": 1,
+                    "memory": 512,
+                    "disk_size": 5,
+                    "base_image": "file:///home/pi/e2egw.tar.gz",
+                    "networks": [
+                        {
+                            "intf_name": "wan",
+                            "br_name": "lxdbr0"
+                        },
+                        {
+                            "intf_name": "lan",
+                            "network_uuid": "2c4e946a-ed83-41cd-ac3d-42d8b806f546"
+                        }
+                    ],
+                    "user-data": "",
+                    "ssh-key": ""
+                }
+            }
+        },
+        {
+            "name": "ap",
+            "node": "1268bdc9784d43f9baecfd36b3d587b5",
+            "need": [
+                "gateway"
+            ],
+            "manifest": {
+                "name": "ap",
+                "version": 1,
+                "type": "lxd",
+                "uuid": "3e107adf-0f37-4ada-9f8b-8a46a75c7eb2",
+                "entity_data": {
+                    "name": "ap",
+                    "uuid": "3e107adf-0f37-4ada-9f8b-8a46a75c7eb2",
+                    "cpu": 1,
+                    "memory": 512,
+                    "disk_size": 5,
+                    "base_image": "file:///home/pi/ap.tar.gz",
+                    "networks": [
+                        {
+                            "intf_name": "wlan1",
+                            "br_name": "wlan1"
+                        },
+                        {
+                            "intf_name": "lan",
+                            "mac": "be:ef:be:ef:00:01",
+                            "network_uuid": "2c4e946a-ed83-41cd-ac3d-42d8b806f546"
+                        }
+                    ],
+                    "user-data": "",
+                    "ssh-key": ""
+                }
+            }
+        },
+        {
+            "name": "sensors",
+            "node": "96337755fd3d48fa8b52d13903f04a24",
+            "need": [
+                "smarthome",
+                "ap"
+            ],
+            "manifest": {
+                "name": "sensors",
+                "version": 1,
+                "type": "native",
+                "uuid": "4114d3a2-627e-11e8-8328-471863a1d447",
+                "entity_data": {
+                    "name": "sensors",
+                    "command": "/home/pi/sensors/start.sh",
+                    "args": [],
+                    "uuid": "4114d3a2-627e-11e8-8328-471863a1d447"
+                }
+            }
+        }
+    ]
+}

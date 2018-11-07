@@ -1,0 +1,1 @@
+Number Office_Humidity "Humidity [%.1f RH]" <humidity> {mqtt="<[mosquitto:booth/demo/hum:state:default]"}

@@ -1,0 +1,1 @@
+Number Office_Light_Sensor "Light Level [%.1f]" <light> {mqtt="<[mosquitto:booth/demo/lsensor:state:default]"}

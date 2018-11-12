@@ -36,14 +36,13 @@ def main(entity_path):
     #     u = n[0]
     #     a.plugin.add(manifest=p_manifest,node_uuid=u)
 
-    print('Node plugins')
-    for n in nodes:
-        u = n[0]
-        print('Node {}:'.format(u))
-        pls = a.plugin.list(node_uuid=u)
-        print('## {}'.format(pls))
-
-    input("Press enter to continue")
+    #print('Node plugins')
+    # for n in nodes:
+    #    u = n[0]
+    #    print('Node {}:'.format(u))
+    #    pls = a.plugin.list(node_uuid=u)
+    #    print('## {}'.format(pls))
+    #input("Press enter to continue")
 
     infos = a.add(e_manifest)
     print('Onboarded:')

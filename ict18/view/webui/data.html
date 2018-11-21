@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>5GCity MEC Orchestrator Demo - MEC RINS Service</title>
+
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="libs/jstree/dist/themes/default/style.css" />
+    <link href="css/ubuntu.css" rel="stylesheet">
+    <link href="css/epoch.min.css" rel="stylesheet">
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="libs/jstree/dist/jstree.js"></script>
+    <script src="js/coffez.js"></script>
+    <script src="js/store.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/d3.min.js"></script>
+    <script src="js/chart.js"></script>
+</head>
+
+<body onload="wsconnect();">
+
+    <!-- Start All -->
+    <div class="container-fluid page">
+        <!-- Start Header -->
+        <header class="row header">
+            <div class="col-md-6">
+                <img src="pics/logo.png" alt="ADLINK logo" />
+            </div>
+            <div class="col-md-6">
+                <img src="pics/5GCityLogo.png" height="80" alt="5GCity logo" align="center" />
+            </div>
+            <div class="col-md-1">
+                <img src="pics/f05_logo.png" height="80" alt="Eclipse fog05 logo" />
+            </div>
+
+        </header>
+
+        <br>
+        <div class="container">
+            <div class="jumbotron">
+                <h1>5GCity MEC Orchestrator and IoT VIM
+                </h1>
+                <h2>RINS Data Viewer</h2>
+                <p>This demo shows integration between NFV and MEC using a couple of ME Apps composed by simple VNFs
+                    that provides a RINS Service and a Viewer of the RINS data</p>
+            </div>
+        </div>
+
+        <div class="container">
+            <p class="lead">One of 5GCity’s objective is o address the heterogeneity that comes for having compute and
+                networking resources at the edge of the network, because of the different virtualisation capabilities
+                that will be present on lamp post or in a cabinet in the street, as well as the need of managing MEC
+                applications as well as NSs in a scenario in which MEC and NFV should work together to enable the best
+                experience for the user of the 5G network.
+            </p>
+        </div>
+
+        <!-- <div class="container">
+            <div class="alert alert-success" role="alert" id="notification_ok">
+                <a href="#" class="alert-link"></a>
+            </div>
+            <div class="alert alert-danger" id="notification_error" role="alert">
+                <p class="alert-link" align="center">Ops.. something went wrong</p>
+            </div>
+        </div> -->
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">RINS plot</h3>
+                        </div>
+                        <div class="panel-body">
+                            <canvas id="rinsChart" width="400" height="100"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+        <!-- Start footer -->
+        <!-- End footer -->
+
+    </div>
+    <!-- End all -->
+
+
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+{
+    "appd-descriptor": {
+        "id": "wifi_rnis",
+        "name": "wifi_rnis_service",
+        "vendor": "ADLINK",
+        "version": "1.0",
+        "soft-version": "",
+        "mec-version": [
+            "1"
+        ],
+        "service-produced": [
+                {"id":"0",
+                "ser-name": "Wifi RNIS",
+                "ser-category": {
+                    "href": "http://something.in/the/catalog",
+                    "id": "RNIS",
+                    "name": "RNIS Services",
+                    "version": "1.0"
+                },
+                "version": "0.1",
+                "transport-supported": [
+                    {
+                        "id":"0",
+                        "transport": {
+                            "type": "MB_PUBSUB",
+                            "protocol": "MQTT",
+                            "version": "5.0",
+                            "security": {
+                                "oauth2_info": "None",
+                                "grant-types": [
+                                    "OAUTH2_IMPLICIT_GRANT"
+                                ],
+                                "token-endpoint": "None"
+                            }
+                        },
+                        "serializers": [
+                            "JSON"
+                        ]
+                    }
+
+                ]
+            }
+        ],
+        "description": "Simple RNIS Service for MEC"
+    },
+    "fos-descriptor": "{\"name\":\"rnis\",\"version\":1,\"type\":\"lxd\",\"uuid\":\"a3b64123-d1c9-406e-bd3b-ac688a076374\",\"entity_data\":{\"name\":\"rnis\",\"uuid\":\"a3b64123-d1c9-406e-bd3b-ac688a076374\",\"cpu\":1,\"memory\":512,\"disk_size\":5,\"base_image\":\"file:///home/ato/images/rins.tar.gz\",\"networks\":[{\"intf_name\":\"eth0\",\"br_name\":\"lxdbr0\"},{\"intf_name\":\"wlxe84e0624c0d1\",\"br_name\":\"wlxe84e0624c0d1\"}],\"user-data\":\"\",\"ssh-key\":\"\"}}"
+}

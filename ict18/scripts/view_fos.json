@@ -1,0 +1,112 @@
+{
+    "name": "fos demo ap on rpi",
+    "type": "entity",
+    "uuid": "2c196ce5-b64b-421b-b76a-b877d09efca2",
+    "version": 1,
+    "networks": [
+        {
+            "name": "demo network",
+            "uuid": "c5da22fa-fc57-4573-baee-c70d618802bc",
+            "overlay_info": {
+                "vxlan_id": 5,
+                "multicast_address": "239.0.0.5"
+            }
+        }
+    ],
+    "components": [
+        {
+            "name": "dash",
+            "node": "4a5609141c3e49669fa87f0acc903253",
+            "need": [
+                "ap"
+            ],
+            "manifest": {
+                "name": "view",
+                "version": 1,
+                "type": "lxd",
+                "uuid": "e52a7e6c-4d97-4c71-a2aa-58b0f0c7536e",
+                "entity_data": {
+                    "name": "view",
+                    "uuid": "e52a7e6c-4d97-4c71-a2aa-58b0f0c7536e",
+                    "cpu": 1,
+                    "memory": 512,
+                    "disk_size": 5,
+                    "base_image": "file:///home/ato/images/view.tar.gz",
+                    "networks": [
+                        {
+                            "intf_name": "eth0",
+                            "mac": "be:ef:be:ef:00:01",
+                            "network_uuid": "c5da22fa-fc57-4573-baee-c70d618802bc"
+                        }
+                    ],
+                    "user-data": "",
+                    "ssh-key": ""
+                }
+            }
+        },
+        {
+            "name": "gateway",
+            "node": "1268bdc9784d43f9baecfd36b3d587b5",
+            "need": [],
+            "manifest": {
+                "name": "gateway",
+                "version": 1,
+                "type": "lxd",
+                "uuid": "0be550dc-d9c4-11e7-aa21-d3df37fbfcfa",
+                "entity_data": {
+                    "name": "gateway",
+                    "uuid": "0be550dc-d9c4-11e7-aa21-d3df37fbfcfa",
+                    "cpu": 1,
+                    "memory": 512,
+                    "disk_size": 5,
+                    "base_image": "file:///home/pi/images/gwict.tar.gz",
+                    "networks": [
+                        {
+                            "intf_name": "wan",
+                            "br_name": "lxdbr0"
+                        },
+                        {
+                            "intf_name": "lan",
+                            "network_uuid": "c5da22fa-fc57-4573-baee-c70d618802bc"
+                        }
+                    ],
+                    "user-data": "",
+                    "ssh-key": ""
+                }
+            }
+        },
+        {
+            "name": "ap",
+            "node": "1268bdc9784d43f9baecfd36b3d587b5",
+            "need": [
+                "gateway"
+            ],
+            "manifest": {
+                "name": "ap",
+                "version": 1,
+                "type": "lxd",
+                "uuid": "3e107adf-0f37-4ada-9f8b-8a46a75c7eb2",
+                "entity_data": {
+                    "name": "ap",
+                    "uuid": "3e107adf-0f37-4ada-9f8b-8a46a75c7eb2",
+                    "cpu": 1,
+                    "memory": 512,
+                    "disk_size": 5,
+                    "base_image": "file:///home/pi/images/apict.tar.gz",
+                    "networks": [
+                        {
+                            "intf_name": "wlan1",
+                            "br_name": "wlan1"
+                        },
+                        {
+                            "intf_name": "lan",
+                            "network_uuid": "c5da22fa-fc57-4573-baee-c70d618802bc"
+                        }
+                    ],
+                    "user-data": "",
+                    "ssh-key": ""
+                }
+            }
+        }
+    ]
+}

@@ -1,4 +1,4 @@
-const ws = new WebSocket('ws://10.100.1.215:8080');
+const ws = new WebSocket('ws://192.168.86.44:8080');
 
 var plot_data = {
     labels: [],

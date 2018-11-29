@@ -35,13 +35,13 @@ def main():
     while True:
         line = input()
         info = line.split(',')
-        if len(info) == 5:
+        if len(info) == 4:
             data = {
                 'station': info[0],
-                'channel': info[1],
-                'dbm': info[2],
-                'data-rate': info[3],
-                'retries': info[4]
+                'channel': int(info[1]),
+                'dbm': int(info[2])
+                # 'data-rate': int(info[3]),
+                # 'retries': info[4]
             }
             print('Read  {}'.format(data))
             topic = '//{}/rins'.format(MEPLATFORM_ID)
@@ -52,6 +52,7 @@ def main():
     Capturing on 'wlxe84e0624c0d1'
     sid               ch db dr r
     e4:9e:12:12:76:50,1,-38,1,0
+    00:a0:f9:49:eb:dd,1,-74,wlan_radio
     '''
     client.loop_forever()
 

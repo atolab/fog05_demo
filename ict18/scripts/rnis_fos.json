@@ -1,0 +1,26 @@
+{
+    "name": "rnis",
+    "version": 1,
+    "type": "lxd",
+    "uuid": "9fa75e6a-d9c3-11e7-b769-5f3db30f0c2e",
+    "entity_data": {
+        "name": "rnis",
+        "uuid": "9fa75e6a-d9c3-11e7-b769-5f3db30f0c2e",
+        "cpu": 1,
+        "memory": 512,
+        "disk_size": 5,
+        "base_image": "file:///home/ato/images/rins.tar.gz",
+        "networks": [
+            {
+                "intf_name": "eth0",
+                "br_name": "lxdbr0"
+            },
+            {
+                "intf_name": "wlxe84e0624c0d1",
+                "br_name": "wlxe84e0624c0d1"
+            }
+        ],
+        "user-data": "",
+        "ssh-key": ""
+    }
+}

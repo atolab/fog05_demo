@@ -16,7 +16,7 @@ def read_file(filepath):
 
 
 def main(entity_path):
-    a = API(endpoint='139.162.144.10')
+    a = API(endpoint='192.168.86.44')
     e_manifest = json.loads(read_file(entity_path))
     #p_manifest = json.loads(read_file('./native_plugin.json'))
 

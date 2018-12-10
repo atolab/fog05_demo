@@ -84,7 +84,7 @@ def main(entity_path, tries, nid, e_ip, y_ip):
 
 
 if __name__ == '__main__':
-    if len(sys.argv) < 2:
+    if len(sys.argv) < 6:
         print('[Usage] {} <path to entity manifest> <tries> <nodeid> <ip of the machine> <ip of yaks>'.format(
             sys.argv[0]))
         exit(0)

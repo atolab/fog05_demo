@@ -88,4 +88,4 @@ if __name__ == '__main__':
         print('[Usage] {} <path to entity manifest> <tries> <nodeid> <ip of the machine> <ip of yaks>'.format(
             sys.argv[0]))
         exit(0)
-    main(sys.argv[1], int(sys.argv[2]), sys.argv[3] sys.argv[4], sys.argv[5])
+    main(sys.argv[1], int(sys.argv[2]), sys.argv[3], sys.argv[4], sys.argv[5])

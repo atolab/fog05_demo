@@ -9,10 +9,9 @@
         "cpu": 1,
         "memory": 512,
         "disk_size": 5,
-        "base_image": "file:///home/ubuntu/brain.qcow2",
+        "base_image": "file:///home/ubuntu/bench.qcow2",
         "networks": [
             {
-                "mac": "52:54:00:c5:aa:a9",
                 "intf_name": "eth0",
                 "br_name": "virbr0"
             }

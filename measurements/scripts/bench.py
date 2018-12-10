@@ -63,7 +63,7 @@ def main(entity_path, tries, nid, e_ip, y_ip):
 
         t_conf = t_one_conf - t_zero_conf
         t_run = t_one_run - t_zero_run
-        t_dep = t_one_run - t_one
+        t_dep = t_one_run - t_zero
 
         a.entity.stop(e_uuid, nid, i_uuid, wait=True)
         a.entity.clean(e_uuid, nid, i_uuid, wait=True)

@@ -50,7 +50,7 @@ module Main (C:Mirage_types_lwt.CONSOLE) (CON:Conduit_mirage.S) = struct
     Lwt.return (String.concat "" s)
 
   let empty_path =
-    Server.respond_string ~status:`Ok ~body:(
+    Server.respond_string ~status:`OK ~body:(
       "{\"status\":\"ok\"")
       ()
   let execute_http_request _ req body =

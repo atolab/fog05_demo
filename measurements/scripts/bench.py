@@ -53,9 +53,10 @@ def main(entity_path, tries, nid, e_ip, y_ip):
         t_zero_run = time()
         a.entity.run(e_uuid, nid, i_uuid, wait=True)
         flag = False
-        while flag:
+        while not flag:
             try:
                 r = requests.get('http://{}'.format(e_ip))
+                flag = True
             except:
                 flag = False
 

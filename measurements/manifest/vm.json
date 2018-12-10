@@ -8,7 +8,7 @@
         "uuid": "9fa75e6a-d9c3-11e7-b769-5f3db30f0c2e",
         "cpu": 1,
         "memory": 512,
-        "disk_size": 5,
+        "disk_size": 1,
         "base_image": "file:///home/ubuntu/bench.qcow2",
         "networks": [
             {

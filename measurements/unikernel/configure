@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+mirage configure -t virtio
+make depend

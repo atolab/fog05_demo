@@ -1,0 +1,23 @@
+{
+    "name": "mirage_example",
+    "version": 1,
+    "type": "kvm",
+    "uuid": "1f812608-b112-404b-a658-acab7fb7e492",
+    "entity_data": {
+        "name": "mirage",
+        "uuid": "1f812608-b112-404b-a658-acab7fb7e492",
+        "cpu": 1,
+        "memory": 512,
+        "disk_size": 1,
+        "base_image": "file:///home/ubuntu/service.img",
+        "networks": [
+            {
+                "mac": "52:54:00:b8:c2:ba",
+                "intf_name": "eth0",
+                "br_name": "virbr0"
+            }
+        ],
+        "user-data": "",
+        "ssh-key": ""
+    }
+}

@@ -9,7 +9,7 @@
         "cpu": 1,
         "memory": 512,
         "disk_size": 1,
-        "base_image": "file:///home/ubuntu/fog05_demo/measurements/unikernel/http.img",
+        "base_image": "file:///home/ubuntu/fog05_demo/measurements/unikernel/http.qcow2",
         "networks": [
             {
                 "mac": "52:54:00:b8:c2:ba",

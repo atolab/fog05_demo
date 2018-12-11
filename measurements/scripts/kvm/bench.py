@@ -24,7 +24,7 @@ def main(xml_path, tries, e_ip):
     for i in range(0, tries):
 
         t_zero = time()
-        dom = a.defineXML(xml_path)
+        dom = a.defineXML(read_file(xml_path))
         dom.create()
         flag = False
         while not flag:

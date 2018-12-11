@@ -1,6 +1,5 @@
 <domain type="kvm">
-    <name>mirages</name>
-    <uuid>61186de0-c833-43d8-9b88-525d58ac4cc2</uuid>
+    <name>mirage</name>
     <memory unit="MB">512</memory>
     <vcpu placement="static">1</vcpu>
     <os>

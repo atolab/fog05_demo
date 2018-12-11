@@ -76,10 +76,10 @@ def main(entity_path, tries, nid, e_ip, y_ip):
         print('Run {}'.format(i+1))
 
     data = {
-        'total_tries': tries,
-        'configuration_times': conf_res,
-        'run_times': run_res,
-        'deploy_times': dep_res
+        'fos_total_tries': tries,
+        'fos_configuration_times': conf_res,
+        'fos_run_times': run_res,
+        'fos_deploy_times': dep_res
     }
     scipy.io.savemat('results-fos-{}.mat'.format(token), data)
     exit(0)

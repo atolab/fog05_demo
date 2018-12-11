@@ -46,8 +46,8 @@ def main(xml_path, tries, e_ip):
         time.sleep(1)
 
     data = {
-        'total_tries': tries,
-        'deploy_times': dep_res
+        'kvm_total_tries': tries,
+        'kvm_deploy_times': dep_res
     }
     scipy.io.savemat('results-hv-{}.mat'.format(token), data)
     exit(0)

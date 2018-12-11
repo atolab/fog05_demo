@@ -19,8 +19,8 @@
     <devices>
         <emulator>/usr/bin/qemu-system-x86_64</emulator>
         <disk device="disk" type="file">
-            <driver name="qemu" type="raw"/>
-            <source file="/home/ubuntu/fog05_demo/measurements/unikernel/http.img"/>
+            <driver name="qemu" type="qcow2"/>
+            <source file="/home/ubuntu/fog05_demo/measurements/unikernel/http.qcow2"/>
             <target dev="hda"/>
             <address bus="0" controller="0" target="0" type="drive" unit="0"/>
         </disk>

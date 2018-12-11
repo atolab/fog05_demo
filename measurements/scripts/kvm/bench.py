@@ -3,7 +3,7 @@ import uuid
 import json
 import sys
 import os
-from time import time
+import time
 import statistics
 import scipy.io
 import requests
@@ -18,12 +18,12 @@ def read_file(filepath):
 def main(xml_path, tries, e_ip):
     a = libvirt.open('qemu:///system')
 
-    token = time()
+    token = time.time()
 
     dep_res = []
     for i in range(0, tries):
 
-        t_zero = time()
+        t_zero = time.time()
         dom = a.defineXML(read_file(xml_path))
         dom.create()
         flag = False
@@ -33,7 +33,7 @@ def main(xml_path, tries, e_ip):
                 flag = True
             except:
                 flag = False
-        t_one = time()
+        t_one = time.time()
 
         t_dep = t_one - t_zero
 
@@ -43,7 +43,7 @@ def main(xml_path, tries, e_ip):
         dom.undefine()
         dep_res.append(t_dep)
         print('Run {}'.format(i+1))
-        sleep(1)
+        time.sleep(1)
 
     data = {
         'total_tries': tries,

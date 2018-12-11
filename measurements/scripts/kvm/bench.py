@@ -43,6 +43,7 @@ def main(xml_path, tries, e_ip):
         dom.undefine()
         dep_res.append(t_dep)
         print('Run {}'.format(i+1))
+        sleep(1)
 
     data = {
         'total_tries': tries,

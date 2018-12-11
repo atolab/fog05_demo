@@ -81,7 +81,7 @@ def main(entity_path, tries, nid, e_ip, y_ip):
         'run_times': run_res,
         'deploy_times': dep_res
     }
-    scipy.io.savemat('results-{}.mat'.format(token), data)
+    scipy.io.savemat('results-fos-{}.mat'.format(token), data)
     exit(0)
 
 

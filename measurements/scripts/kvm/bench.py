@@ -47,7 +47,7 @@ def main(xml_path, tries, e_ip):
         'total_tries': tries,
         'deploy_times': dep_res
     }
-    scipy.io.savemat('results-{}.mat'.format(token), data)
+    scipy.io.savemat('results-hv-{}.mat'.format(token), data)
     exit(0)
 
 

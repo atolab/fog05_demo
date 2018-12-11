@@ -73,6 +73,7 @@ def main(entity_path, tries, nid, e_ip, y_ip):
         conf_res.append(t_conf)
         run_res.append(t_run)
         dep_res.append(t_dep)
+        print('Run {}'.format(i+1))
 
     data = {
         'total_tries': tries,

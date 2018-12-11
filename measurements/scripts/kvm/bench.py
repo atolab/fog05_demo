@@ -33,12 +33,13 @@ def main(xml_path, tries, e_ip):
                 flag = True
             except:
                 flag = False
-
         t_one = time()
 
         t_dep = t_one - t_zero
 
         dom.destroy()
+        while dom.isActive():
+            pass
         dom.undefine()
         dep_res.append(t_dep)
         print('Run {}'.format(i+1))

@@ -1,0 +1,19 @@
+{
+    "name": "alpine_example_lxd",
+    "version": 1,
+    "type": "lxd",
+    "uuid": "aeb4cab6-be04-48a6-9619-67b0ef63ef8c",
+    "entity_data": {
+        "name": "alpinelxd",
+        "uuid": "9aeb4cab6-be04-48a6-9619-67b0ef63ef8c",
+        "base_image": "file:///home/ubuntu/bench.tar.gz",
+        "networks": [
+            {
+                "intf_name": "eth0",
+                "br_name": "virbr0"
+            }
+        ],
+        "user-data": "",
+        "ssh-key": ""
+    }
+}

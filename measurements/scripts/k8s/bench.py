@@ -33,6 +33,7 @@ def main(yaml_path, name, tries):
             i = v1.list_namespaced_pod("default").items
         ip = i[0].status.pod_ip
         while ip is None:
+            i = v1.list_namespaced_pod("default").items
             ip = i[0].status.pod_ip
         print('IP is {}'.format(ip))
         flag = False

@@ -48,7 +48,7 @@ def main(yaml_path, name, tries):
                 propagation_policy='Foreground')
         os.system("sudo docker image rm 84581e99d807")
         dep_res.append(t_dep)
-        print('Run {}'.format(i+1))
+         print('Run {} took: {} '.format(i+1), t_dep)
         time.sleep(5)
 
     data={

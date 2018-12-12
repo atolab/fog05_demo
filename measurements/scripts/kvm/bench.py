@@ -42,7 +42,7 @@ def main(xml_path, tries, e_ip):
             pass
         dom.undefine()
         dep_res.append(t_dep)
-        print('Run {}'.format(i+1))
+        print('Run {} took: {} '.format(i+1), t_dep)
         time.sleep(1)
 
     data = {

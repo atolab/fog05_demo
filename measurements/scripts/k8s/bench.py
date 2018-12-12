@@ -32,6 +32,7 @@ def main(yaml_path, name, tries):
         while len(i) == 0:
             i = v1.list_namespaced_pod("default").items
         ip = i[0].status.pod_ip
+        print('IP is {}'.format(ip))
         flag = False
         while not flag:
             try:

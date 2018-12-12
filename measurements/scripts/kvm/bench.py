@@ -22,7 +22,7 @@ def main(xml_path, tries, e_ip):
 
     dep_res = []
     for i in range(0, tries):
-
+        print('Run {} started '.format(i+1))
         t_zero = time.time()
         dom = a.defineXML(read_file(xml_path))
         dom.create()

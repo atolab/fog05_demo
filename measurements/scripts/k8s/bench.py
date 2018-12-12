@@ -24,7 +24,7 @@ def main(yaml_path, name, tries):
 
     dep_res = []
     for index in range(0, tries):
-
+        print('Run {} started '.format(index+1))
         t_zero = time.time()
         deps = k8s_api.read_namespaced_deployment(
             name, "default")

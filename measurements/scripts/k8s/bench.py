@@ -31,6 +31,7 @@ def main(yaml_path, name, tries):
         i = v1.list_namespaced_pod("default").items
         while len(i) == 0:
             i = v1.list_namespaced_pod("default").items
+        ip = i[0].status.pod_ip
         while ip is None:
             ip = i[0].status.pod_ip
         print('IP is {}'.format(ip))

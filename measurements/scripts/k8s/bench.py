@@ -14,17 +14,17 @@ def read_file(filepath):
 
 
 def main(yaml_path, name, tries):
-    config.load_kube_config()
-    k8s_client = client.ApiClient()
-    k8s_api = utils.create_from_yaml(k8s_client, yaml_path)
-    v1 = client.CoreV1Api()
-    extensions_v1beta1 = client.ExtensionsV1beta1Api()
 
     token = time.time()
 
     dep_res = []
     for index in range(0, tries):
         print('Run {} started '.format(index+1))
+        config.load_kube_config()
+        k8s_client = client.ApiClient()
+        k8s_api = utils.create_from_yaml(k8s_client, yaml_path)
+        v1 = client.CoreV1Api()
+        extensions_v1beta1 = client.ExtensionsV1beta1Api()
         t_zero = time.time()
         deps = k8s_api.read_namespaced_deployment(
             name, "default")

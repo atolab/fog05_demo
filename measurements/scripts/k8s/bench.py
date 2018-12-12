@@ -28,8 +28,10 @@ def main(yaml_path, name, tries):
         t_zero = time.time()
         deps = k8s_api.read_namespaced_deployment(
             name, "default")
-        i = v1.list_namespaced_pod("default").items[0]
-        ip = i.status.pod_ip
+        i = v1.list_namespaced_pod("default").items
+        while len(i) == 0:
+            i = v1.list_namespaced_pod("default").items
+        ip = i[0].status.pod_ip
         flag = False
         while not flag:
             try:

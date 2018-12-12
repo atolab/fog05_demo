@@ -44,7 +44,7 @@ def main(entity_path, tries, nid, e_ip, y_ip):
             try:
                 r = requests.get('http://{}'.format(e_ip), timeout=0.01)
                 flag = True
-            except requests.exceptions.RequestException as e
+            except requests.exceptions.RequestException as e:
                 flag = False
 
         t_one_run = time.time()

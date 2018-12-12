@@ -3,7 +3,7 @@ import uuid
 import json
 import sys
 import os
-from time import time
+import time
 import statistics
 import scipy.io
 import requests
@@ -18,7 +18,7 @@ def read_file(filepath):
 def main(entity_path, tries, nid, e_ip, y_ip):
     a = API(endpoint=y_ip)
 
-    token = time()
+    token = time.time()
     nodes = a.node.list()
     if len(nodes) == 0:
         print('No nodes')
@@ -37,7 +37,7 @@ def main(entity_path, tries, nid, e_ip, y_ip):
     dep_res = []
     for i in range(0, tries):
         i_uuid = '{}'.format(uuid.uuid4())
-        t_zero = time()
+        t_zero = time.time()
 
         a.onboard(e_manifest)
         flag = False
@@ -48,7 +48,7 @@ def main(entity_path, tries, nid, e_ip, y_ip):
             except:
                 flag = False
 
-        t_one_run = time()
+        t_one_run = time.time()
 
         a.remove(e_manifest.get('uuid'))
 
@@ -56,7 +56,7 @@ def main(entity_path, tries, nid, e_ip, y_ip):
 
         dep_res.append(t_dep)
         print('Run {} took: {} '.format(i+1, t_dep))
-
+        time.sleep(10)
     data = {
         'fos_total_tries': tries,
         'fos_deploy_times': dep_res

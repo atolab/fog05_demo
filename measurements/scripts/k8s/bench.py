@@ -64,4 +64,4 @@ if __name__ == '__main__':
         print('[Usage] {} <path to k8s yaml> <deployment name> <tries>'.format(
             sys.argv[0]))
         exit(0)
-    main(sys.argv[1], int(sys.argv[2]), sys.argv[3])
+    main(sys.argv[1], sys.argv[2], int(sys.argv[3]))

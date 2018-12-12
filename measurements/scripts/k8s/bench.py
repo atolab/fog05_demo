@@ -52,7 +52,9 @@ def main(yaml_path, name, tries):
             namespace="default",
             body=client.V1DeleteOptions(
                 propagation_policy='Foreground'))
+
         os.system("sudo docker image rm 84581e99d807")
+
         dep_res.append(t_dep)
         print('Run {} took: {} '.format(index+1, t_dep))
         time.sleep(5)

@@ -34,23 +34,12 @@ def main(entity_path, tries, nid, e_ip, y_ip):
 
     e_manifest = json.loads(read_file(entity_path))
 
-    e_uuid = e_manifest.get('uuid')
-
-    conf_res = []
-    run_res = []
     dep_res = []
     for i in range(0, tries):
         i_uuid = '{}'.format(uuid.uuid4())
         t_zero = time()
 
-        a.entity.define(e_manifest, nid, wait=True)
-
-        t_zero_conf = time()
-        a.entity.configure(e_uuid, nid, i_uuid, wait=True)
-        t_one_conf = time()
-
-        t_zero_run = time()
-        a.entity.run(e_uuid, nid, i_uuid, wait=True)
+        a.onboard(e_manifest)
         flag = False
         while not flag:
             try:
@@ -61,23 +50,15 @@ def main(entity_path, tries, nid, e_ip, y_ip):
 
         t_one_run = time()
 
-        t_conf = t_one_conf - t_zero_conf
-        t_run = t_one_run - t_zero_run
+        a.remove(e_manifest.get('uuid'))
+
         t_dep = t_one_run - t_zero
 
-        a.entity.stop(e_uuid, nid, i_uuid, wait=True)
-        a.entity.clean(e_uuid, nid, i_uuid, wait=True)
-        a.entity.undefine(e_uuid, nid, wait=True)
-
-        conf_res.append(t_conf)
-        run_res.append(t_run)
         dep_res.append(t_dep)
         print('Run {} took: {} '.format(i+1, t_dep))
 
     data = {
         'fos_total_tries': tries,
-        'fos_configuration_times': conf_res,
-        'fos_run_times': run_res,
         'fos_deploy_times': dep_res
     }
     scipy.io.savemat('results-fos-{}.mat'.format(token), data)

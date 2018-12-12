@@ -55,7 +55,7 @@ def main(entity_path, tries, nid, e_ip, y_ip):
         flag = False
         while not flag:
             try:
-                r = requests.get('http://{}'.format(e_ip))
+                r = requests.get('http://{}'.format(e_ip), timeout=0.001)
                 flag = True
             except:
                 flag = False

@@ -45,13 +45,13 @@ def main(yaml_path, name, tries):
             name=name,
             namespace="default",
             body=client.V1DeleteOptions(
-                propagation_policy='Foreground')
+                propagation_policy='Foreground'))
         os.system("sudo docker image rm 84581e99d807")
         dep_res.append(t_dep)
         print('Run {} took: {} '.format(i+1, t_dep))
         time.sleep(5)
 
-    data={
+    data = {
         'k8s_total_tries': tries,
         'k8s_deploy_times': dep_res
     }

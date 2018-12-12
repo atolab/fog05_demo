@@ -18,6 +18,7 @@ def main(yaml_path, name, tries):
     k8s_client = client.ApiClient()
     k8s_api = utils.create_from_yaml(k8s_client, yaml_path)
     v1 = client.CoreV1Api()
+    extensions_v1beta1 = client.ExtensionsV1beta1Api()
 
     token = time.time()
 
@@ -40,11 +41,17 @@ def main(yaml_path, name, tries):
 
         t_dep = t_one - t_zero
 
+        extensions_v1beta1.delete_namespaced_deployment(
+            name=name,
+            namespace="default",
+            body=client.V1DeleteOptions(
+                propagation_policy='Foreground')
+        os.system("sudo docker image rm 84581e99d807")
         dep_res.append(t_dep)
         print('Run {}'.format(i+1))
-        time.sleep(1)
+        time.sleep(5)
 
-    data = {
+    data={
         'k8s_total_tries': tries,
         'k8s_deploy_times': dep_res
     }

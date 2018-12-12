@@ -35,13 +35,12 @@ def main(entity_path, tries, nid, e_ip, y_ip):
     e_manifest = json.loads(read_file(entity_path))
 
     e_uuid = e_manifest.get('uuid')
-    i_uuid = '{}'.format(uuid.uuid4())
 
     conf_res = []
     run_res = []
     dep_res = []
     for i in range(0, tries):
-
+        i_uuid = '{}'.format(uuid.uuid4())
         t_zero = time()
 
         a.entity.define(e_manifest, nid, wait=True)

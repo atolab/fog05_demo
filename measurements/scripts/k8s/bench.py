@@ -23,7 +23,7 @@ def main(yaml_path, name, tries):
     token = time.time()
 
     dep_res = []
-    for i in range(0, tries):
+    for index in range(0, tries):
 
         t_zero = time.time()
         deps = k8s_api.read_namespaced_deployment(
@@ -54,7 +54,7 @@ def main(yaml_path, name, tries):
                 propagation_policy='Foreground'))
         os.system("sudo docker image rm 84581e99d807")
         dep_res.append(t_dep)
-        print('Run {} took: {} '.format(i+1, t_dep))
+        print('Run {} took: {} '.format(index+1, t_dep))
         time.sleep(5)
 
     data = {

@@ -23,6 +23,7 @@
                     "base_image": "file:///home/ubuntu/bench.qcow2",
                     "networks": [
                         {
+                            "mac": "52:54:00:b8:c2:bb",
                             "intf_name": "eth0",
                             "br_name": "virbr0"
                         }

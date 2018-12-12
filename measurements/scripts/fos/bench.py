@@ -36,16 +36,15 @@ def main(entity_path, tries, nid, e_ip, y_ip):
 
     dep_res = []
     for i in range(0, tries):
-        i_uuid = '{}'.format(uuid.uuid4())
         t_zero = time.time()
 
         a.onboard(e_manifest)
         flag = False
         while not flag:
             try:
-                r = requests.get('http://{}'.format(e_ip), timeout=0.001)
+                r = requests.get('http://{}'.format(e_ip), timeout=0.01)
                 flag = True
-            except:
+            except requests.exceptions.RequestException as e
                 flag = False
 
         t_one_run = time.time()

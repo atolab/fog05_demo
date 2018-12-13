@@ -3,6 +3,7 @@ open Mirage
 
 let config = {
   network = (Ipaddr.V4.Prefix.of_string_exn "192.168.122.0/24", Ipaddr.V4.of_string_exn "192.168.122.100")
+; gateway = None
 }
 
 let server =

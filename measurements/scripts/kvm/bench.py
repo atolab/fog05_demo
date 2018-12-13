@@ -29,7 +29,7 @@ def main(xml_path, tries, e_ip):
         flag = False
         while not flag:
             try:
-                r = requests.get('http://{}'.format(e_ip), timeout=0.001)
+                r = requests.get('http://{}'.format(e_ip), timeout=0.1)
                 flag = True
             except:
                 flag = False

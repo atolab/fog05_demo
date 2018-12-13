@@ -39,7 +39,7 @@ def main(yaml_path, name, tries):
         flag = False
         while not flag:
             try:
-                r = requests.get('http://{}'.format(ip), timeout=0.001)
+                r = requests.get('http://{}'.format(ip), timeout=0.1)
                 flag = True
             except:
                 flag = False

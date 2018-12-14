@@ -23,7 +23,8 @@ def read_binary_file(file_path):
 
 
 def main(image_path, tries, e_ip):
-    net_conf = '{"name":"eth0","type":"nic","parent":"virbr0","nictype":"bridged","hwaddr":"52:54:00:b8:c2:ba"}'
+    net_conf = {"eth0": {"name": "eth0", "type": "nic", "parent": "virbr0",
+                         "nictype": "bridged", "hwaddr": "52:54:00:b8:c2:ba"}}
     client = Client()
     image_data = read_binary_file(image_path)
 

@@ -64,10 +64,10 @@ def main(image_name, tries):
         time.sleep(1)
 
     data = {
-        'lxd_total_tries': tries,
-        'lxd_deploy_times': dep_res
+        'os_total_tries': tries,
+        'os_deploy_times': dep_res
     }
-    scipy.io.savemat('results-lxd-{}.mat'.format(tries), data)
+    scipy.io.savemat('results-os-{}.mat'.format(tries), data)
     exit(0)
 
 

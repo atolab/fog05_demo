@@ -47,6 +47,7 @@ def main(image_path, tries, e_ip):
 
         container = client.containers.create(cont_conf, wait=True)
         container.start()
+        profile.sync()
         flag = False
         while not flag:
             try:
@@ -66,6 +67,7 @@ def main(image_path, tries, e_ip):
         while True:
             if len(profile.used_by) == 0:
                 break
+            profile.sync()
             time.sleep(1)
         profile.delete()
         img.delete()

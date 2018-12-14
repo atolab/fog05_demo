@@ -24,7 +24,7 @@ def read_binary_file(file_path):
 
 def main(image_path, tries, e_ip):
     dev_conf = {'eth0': {'nictype': 'bridged', 'type': 'nic', 'parent': 'virbr0',
-                         'name': 'eth0', "hwaddr": "52:54:00:b8:c2:ba"},
+                         'name': 'eth0', 'hwaddr': '52:54:00:b8:c2:ba'},
                 'root': {'type': 'disk', 'pool': 'default', 'path': '/'}}
     client = Client()
     image_data = read_binary_file(image_path)
@@ -42,7 +42,7 @@ def main(image_path, tries, e_ip):
         profile.devices = dev_conf
         profile.save()
 
-        cont_conf = {'name': alias, 'profiles': alias,
+        cont_conf = {'name': alias, 'profiles': [alias],
                      'source': {'type': 'image', 'alias': alias}}
 
         container = client.containers.create(cont_conf, wait=True)

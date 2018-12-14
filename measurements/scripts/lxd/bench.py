@@ -23,8 +23,9 @@ def read_binary_file(file_path):
 
 
 def main(image_path, tries, e_ip):
-    net_conf = {"eth0": {"name": "eth0", "type": "nic", "parent": "virbr0",
-                         "nictype": "bridged", "hwaddr": "52:54:00:b8:c2:ba"}}
+    dev_conf = {'eth0': {'nictype': 'bridged', 'type': 'nic', 'parent': 'virbr0',
+                         'name': 'eth0', "hwaddr": "52:54:00:b8:c2:ba"},
+                'root': {'type': 'disk', 'pool': 'default', 'path': '/'}}
     client = Client()
     image_data = read_binary_file(image_path)
 
@@ -38,7 +39,7 @@ def main(image_path, tries, e_ip):
         img = client.images.create(image_data, public=True, wait=True)
         img.add_alias(alias, description="Bench image")
         profile = client.profiles.create(alias)
-        profile.devices = net_conf
+        profile.devices = dev_conf
         profile.save()
 
         cont_conf = {'name': alias, 'profiles': alias,

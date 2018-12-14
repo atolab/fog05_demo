@@ -72,7 +72,7 @@ def main(image_name, tries):
 
 
 if __name__ == '__main__':
-    if len(sys.argv) < 4:
+    if len(sys.argv) < 3:
         print('[Usage] {} <image name> <tries>'.format(
             sys.argv[0]))
         exit(0)

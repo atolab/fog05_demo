@@ -1,17 +1,17 @@
 open Mirage
 
 
-let config = {
-  network = (Ipaddr.V4.Prefix.of_string_exn "192.168.122.0/24", Ipaddr.V4.of_string_exn "192.168.122.100")
-; gateway = None
-}
+(* let config = {
+   network = (Ipaddr.V4.Prefix.of_string_exn "192.168.122.0/24", Ipaddr.V4.of_string_exn "192.168.122.100")
+   ; gateway = None
+   } *)
 
-let server =
-  (* let network =
-     (generic_stackv4 default_console tap0)
-     (socket_stackv4 default_console [Ipaddr.V4.any])
-     in *)
-  conduit_direct (static_ipv4_stack ~config default_network)
+let server = conduit_direct (dhcp_ipv4_stack default_network)
+(* let network =
+   (generic_stackv4 default_console tap0)
+   (socket_stackv4 default_console [Ipaddr.V4.any])
+   in *)
+(* conduit_direct (static_ipv4_stack ~config default_network) *)
 
 
 

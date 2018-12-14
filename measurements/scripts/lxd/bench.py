@@ -35,7 +35,7 @@ def main(image_path, tries, e_ip):
         t_zero = time.time()
 
         img = client.images.create(image_data, public=True, wait=True)
-        img.add_alias(alias)
+        img.add_alias(alias, description="Bench image")
         profile = client.profiles.create(alias)
         profile.devices = net_conf
         profile.save()

@@ -23,7 +23,6 @@ def read_binary_file(file_path):
 
 
 def main(image_path, tries, e_ip):
-    token = time.time()
     net_conf = '{"name":"eth0","type":"nic","parent":"virbr0","nictype":"bridged","hwaddr":"52:54:00:b8:c2:ba"}'
     client = Client()
     image_data = read_binary_file(image_path)
@@ -74,10 +73,10 @@ def main(image_path, tries, e_ip):
         time.sleep(1)
 
     data = {
-        'kvm_total_tries': tries,
-        'kvm_deploy_times': dep_res
+        'lxd_total_tries': tries,
+        'lxd_deploy_times': dep_res
     }
-    scipy.io.savemat('results-hv-{}.mat'.format(token), data)
+    scipy.io.savemat('results-lxd-{}.mat'.format(tries), data)
     exit(0)
 
 

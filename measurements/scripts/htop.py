@@ -1,5 +1,5 @@
 import psutil
-import scipy
+import scipy.io
 import time
 import signal
 import sys
@@ -21,8 +21,8 @@ def signal_handler(sig, frame):
 def main():
     while True:
         cpus.append(psutil.cpu_percent())
-        ram.append(psutil.virtual_memory()._asdict()/1024)
-        time.sleep(0.1)
+        ram.append(psutil.virtual_memory()._asdict().get('used')/1024)
+        time.sleep(0.25)
 
 
 if __name__ == '__main__':

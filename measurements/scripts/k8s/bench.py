@@ -26,6 +26,7 @@ def main(yaml_path, name, tries):
         v1 = client.CoreV1Api()
         extensions_v1beta1 = client.ExtensionsV1beta1Api()
         t_zero = time.time()
+        os.system("cat nginx.tar.gz | sudo docker image load")
         deps = k8s_api.read_namespaced_deployment(
             name, "default")
         i = v1.list_namespaced_pod("default").items

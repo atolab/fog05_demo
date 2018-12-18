@@ -41,7 +41,7 @@ def main(image_name, tries):
             networks=[{"uuid": network.id}])
 
         server = conn.compute.wait_for_server(server)
-        e_ip = server.access_ipv4
+        e_ip = server.addresses['lan1'][0]['addr']
         flag = False
         while not flag:
             try:

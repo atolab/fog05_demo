@@ -74,12 +74,15 @@ def main(tries, chain_length):
                 pod = [x for x in pods if name in x.metadata.name][0]
             deployments.append((name, dep))
 
-        cont = [x for x in i if x.spec.containers[0].name == name][0]
+        pods = v1.list_namespaced_pod("default").items
+        while len(pods) != i+1:
+            pods = v1.list_namespaced_pod("default").items
+        cont = [x for x in pods if x.spec.containers[0].name == name][0]
         ip = None
         ip = cont.status.pod_ip
         while ip is None:
             i = v1.list_namespaced_pod("default").items
-            cont = [x for x in i if x.spec.containers[0].name == name][0]
+            cont = [x for x in pods if x.spec.containers[0].name == name][0]
             ip = cont.status.pod_ip
         print('IP is {}'.format(ip))
         flag = False

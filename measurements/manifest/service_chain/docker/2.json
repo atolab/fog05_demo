@@ -1,0 +1,63 @@
+{
+    "name": "simple docker entity",
+    "type": "entity",
+    "uuid": "f4fc2712-3321-11e8-8b1a-cfb69ab5a576",
+    "version": 1,
+    "networks": [],
+    "components": [
+        {
+            "name": "bench0",
+            "node": "971cb99403484d2e8d3a3477085e7069",
+            "need": [
+                "bench1"
+            ],
+            "manifest": {
+                "name": "0",
+                "version": 1,
+                "type": "dock",
+                "uuid": "d5759c53-3791-4c24-aff0-a65c1e573596",
+                "entity_data": {
+                    "name": "dock0",
+                    "uuid": "d5759c53-3791-4c24-aff0-a65c1e573596",
+                    "base_image": "file:///home/ubuntu/nginx.tar.gz",
+                    "networks": [
+                        {
+                            "mac": "52:54:00:b8:c2:bc",
+                            "intf_name": "eth0",
+                            "br_name": "virbr0"
+                        }
+                    ],
+                    "port-mappings": {
+                        "80": 80
+                    },
+                    "user-data": "",
+                    "ssh-key": ""
+                }
+            }
+        },
+        {
+            "name": "bench1",
+            "node": "971cb99403484d2e8d3a3477085e7069",
+            "need": [],
+            "manifest": {
+                "name": "nginx_example_docker",
+                "version": 1,
+                "type": "1",
+                "uuid": "38b2aa19-2ed6-4a50-939b-9a4adcd7d176",
+                "entity_data": {
+                    "name": "dock01",
+                    "uuid": "38b2aa19-2ed6-4a50-939b-9a4adcd7d176",
+                    "base_image": "file:///home/ubuntu/nginx.tar.gz",
+                    "networks": [
+                        {
+                            "intf_name": "eth0",
+                            "br_name": "virbr0"
+                        }
+                    ],
+                    "user-data": "",
+                    "ssh-key": ""
+                }
+            }
+        }
+    ]
+}

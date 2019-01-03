@@ -55,7 +55,7 @@ def main(tries, chain_length):
         v1 = client.CoreV1Api()
         api = client.ExtensionsV1beta1Api()
         t_zero = time.time()
-        os.system("cat nginx.tar.gz | sudo docker image load")
+        os.system("cat ../nginx.tar.gz | sudo docker image load")
         for i in range(0, chain_length):
             name = 'item{}'.format(i)
             if i == (chain_length-1):

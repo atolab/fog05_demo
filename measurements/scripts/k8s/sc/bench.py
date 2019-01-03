@@ -71,7 +71,7 @@ def main(tries, chain_length):
             pod = [x for x in i if name in x.metadata.name][0]
             while len(pod.containers) == 0:
                 pods = v1.list_namespaced_pod("default").items
-                pod = [x for x in i if name in x.metadata.name][0]
+                pod = [x for x in pods if name in x.metadata.name][0]
             deployments.append((name, dep))
 
         cont = [x for x in i if x.spec.containers[0].name == name][0]

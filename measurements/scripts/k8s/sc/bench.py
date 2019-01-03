@@ -17,12 +17,12 @@ def create_deployment_object(name, ports=False):
     # Configureate Pod template container
     if ports:
         container = client.V1Container(
-            name="name",
+            name=name,
             image="nginx:1.7.9",
             ports=[client.V1ContainerPort(container_port=80)])
     else:
         container = client.V1Container(
-            name="name",
+            name=name,
             image="nginx:1.7.9")
     # Create and configurate a spec section
     template = client.V1PodTemplateSpec(
@@ -70,10 +70,13 @@ def main(tries, chain_length):
         i = v1.list_namespaced_pod("default").items
         while len(i) == 0:
             i = v1.list_namespaced_pod("default").items
-        ip = i[0].status.pod_ip
+        cont = [x for x in i if x.spec.containers[0].name == name][0]
+        ip = None
+        ip = cont.status.pod_ip
         while ip is None:
             i = v1.list_namespaced_pod("default").items
-            ip = i[0].status.pod_ip
+            cont = [x for x in i if x.spec.containers[0].name == name][0]
+            ip = cont.status.pod_ip
         print('IP is {}'.format(ip))
         flag = False
         while not flag:

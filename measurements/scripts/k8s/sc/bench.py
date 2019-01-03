@@ -69,7 +69,7 @@ def main(tries, chain_length):
             while len(pods) != i+1:
                 pods = v1.list_namespaced_pod("default").items
             pod = [x for x in pods if name in x.metadata.name][0]
-            while len(pod.containers) == 0:
+            while len(pod.spec.containers) == 0:
                 pods = v1.list_namespaced_pod("default").items
                 pod = [x for x in pods if name in x.metadata.name][0]
             deployments.append((name, dep))

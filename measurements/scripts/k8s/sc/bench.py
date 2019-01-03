@@ -13,22 +13,60 @@ def read_file(filepath):
     return data
 
 
-def main(yaml_path, name, tries):
+def create_deployment_object(name, ports=False):
+    # Configureate Pod template container
+    if ports:
+        container = client.V1Container(
+            name="name",
+            image="nginx:1.7.9",
+            ports=[client.V1ContainerPort(container_port=80)])
+    else:
+        container = client.V1Container(
+            name="name",
+            image="nginx:1.7.9")
+    # Create and configurate a spec section
+    template = client.V1PodTemplateSpec(
+        metadata=client.V1ObjectMeta(labels={"app": "nginx"}),
+        spec=client.V1PodSpec(containers=[container]))
+    # Create the specification of deployment
+    spec = client.ExtensionsV1beta1DeploymentSpec(
+        replicas=1,
+        template=template)
+    # Instantiate the deployment object
+    deployment = client.ExtensionsV1beta1Deployment(
+        api_version="extensions/v1beta1",
+        kind="Deployment",
+        metadata=client.V1ObjectMeta(name=name),
+        spec=spec)
+
+    return deployment
+
+
+def main(tries, chain_length):
 
     token = time.time()
-
     dep_res = []
+    deployments = []
+
     for index in range(0, tries):
         print('Run {} started '.format(index+1))
         config.load_kube_config()
         k8s_client = client.ApiClient()
-        k8s_api = utils.create_from_yaml(k8s_client, yaml_path)
         v1 = client.CoreV1Api()
-        extensions_v1beta1 = client.ExtensionsV1beta1Api()
+        api = client.ExtensionsV1beta1Api()
         t_zero = time.time()
         os.system("cat nginx.tar.gz | sudo docker image load")
-        deps = k8s_api.read_namespaced_deployment(
-            name, "default")
+        for i in range(0, chain_length):
+            name = 'item{}'.format(i)
+            if i == (chain_length-1):
+                dep = create_deployment_object(name, ports=True)
+            else:
+                dep = create_deployment_object(name)
+            api_response = api.create_namespaced_deployment(
+                body=dep,
+                namespace="default")
+            deployments.append((name, dep))
+
         i = v1.list_namespaced_pod("default").items
         while len(i) == 0:
             i = v1.list_namespaced_pod("default").items
@@ -48,11 +86,12 @@ def main(yaml_path, name, tries):
 
         t_dep = t_one - t_zero
 
-        extensions_v1beta1.delete_namespaced_deployment(
-            name=name,
-            namespace="default",
-            body=client.V1DeleteOptions(
-                propagation_policy='Foreground'))
+        for n, _ in deployments:
+            api.delete_namespaced_deployment(
+                name=n,
+                namespace="default",
+                body=client.V1DeleteOptions(
+                    propagation_policy='Foreground'))
 
         time.sleep(10)
 
@@ -71,8 +110,8 @@ def main(yaml_path, name, tries):
 
 
 if __name__ == '__main__':
-    if len(sys.argv) < 4:
-        print('[Usage] {} <path to k8s yaml> <deployment name> <tries>'.format(
+    if len(sys.argv) < 3:
+        print('[Usage] {} <tries> <chain length>'.format(
             sys.argv[0]))
         exit(0)
-    main(sys.argv[1], sys.argv[2], int(sys.argv[3]))
+    main(int(sys.argv[1]), int(sys.argv[2]))

@@ -96,13 +96,14 @@ def main(tries, chain_length):
                 body=client.V1DeleteOptions(
                     propagation_policy='Foreground'))
 
-        time.sleep(5)
+        i = v1.list_namespaced_pod("default").items
+        while len(i) != 0:
+            i = v1.list_namespaced_pod("default").items
 
         os.system("sudo docker image rm 84581e99d807")
 
         dep_res.append(t_dep)
         print('Run {} took: {} '.format(index+1, t_dep))
-        time.sleep(1)
 
     data = {
         'k8s_total_tries': tries,

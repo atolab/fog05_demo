@@ -32,10 +32,9 @@ def main(entity_path, tries, nid, e_ip, y_ip):
         print('Selected node is not available!!')
         exit(-1)
 
-    e_manifest = json.loads(read_file(entity_path))
-
     dep_res = []
     for i in range(0, tries):
+        e_manifest = json.loads(read_file(entity_path))
         print('Run {} started '.format(i+1))
         t_zero = time.time()
 

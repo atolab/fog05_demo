@@ -38,14 +38,66 @@
         {
             "name": "bench1",
             "node": "971cb99403484d2e8d3a3477085e7069",
-            "need": [],
+            "need": [
+                "bench2"
+            ],
             "manifest": {
                 "name": "1",
                 "version": 1,
                 "type": "docker",
-                "uuid": "38b2aa19-2ed6-4a50-939b-9a4adcd7d176",
+                "uuid": "72d3f5f8-cdd1-4af2-b69a-770939089272",
                 "entity_data": {
                     "name": "dock1",
+                    "uuid": "72d3f5f8-cdd1-4af2-b69a-770939089272",
+                    "base_image": "nginx:1.7.9",
+                    "networks": [
+                        {
+                            "intf_name": "eth0",
+                            "br_name": "virbr0"
+                        }
+                    ],
+                    "user-data": "",
+                    "ssh-key": ""
+                }
+            }
+        },
+        {
+            "name": "bench2",
+            "node": "971cb99403484d2e8d3a3477085e7069",
+            "need": [
+                "bench3"
+            ],
+            "manifest": {
+                "name": "2",
+                "version": 1,
+                "type": "docker",
+                "uuid": "5e9cca5c-eb5b-448f-9f78-5c5b3c8a3481",
+                "entity_data": {
+                    "name": "dock2",
+                    "uuid": "5e9cca5c-eb5b-448f-9f78-5c5b3c8a3481",
+                    "base_image": "nginx:1.7.9",
+                    "networks": [
+                        {
+                            "intf_name": "eth0",
+                            "br_name": "virbr0"
+                        }
+                    ],
+                    "user-data": "",
+                    "ssh-key": ""
+                }
+            }
+        },
+        {
+            "name": "bench3",
+            "node": "971cb99403484d2e8d3a3477085e7069",
+            "need": [],
+            "manifest": {
+                "name": "3",
+                "version": 1,
+                "type": "docker",
+                "uuid": "38b2aa19-2ed6-4a50-939b-9a4adcd7d176",
+                "entity_data": {
+                    "name": "dock3",
                     "uuid": "38b2aa19-2ed6-4a50-939b-9a4adcd7d176",
                     "base_image": "file:///home/ubuntu/nginx.tar.gz",
                     "networks": [

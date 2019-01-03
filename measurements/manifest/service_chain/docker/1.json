@@ -12,7 +12,7 @@
             "manifest": {
                 "name": "nginx_example_docker",
                 "version": 1,
-                "type": "dock",
+                "type": "docker",
                 "uuid": "d5759c53-3791-4c24-aff0-a65c1e573596",
                 "entity_data": {
                     "name": "alpinelxd",

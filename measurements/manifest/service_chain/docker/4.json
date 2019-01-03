@@ -15,10 +15,10 @@
                 "name": "0",
                 "version": 1,
                 "type": "docker",
-                "uuid": "d5759c53-3791-4c24-aff0-a65c1e573596",
+                "uuid": "00000000-0000-0000-0000-000000000000",
                 "entity_data": {
                     "name": "dock0",
-                    "uuid": "d5759c53-3791-4c24-aff0-a65c1e573596",
+                    "uuid": "00000000-0000-0000-0000-000000000000",
                     "base_image": "nginx:1.7.9",
                     "networks": [
                         {
@@ -45,10 +45,10 @@
                 "name": "1",
                 "version": 1,
                 "type": "docker",
-                "uuid": "72d3f5f8-cdd1-4af2-b69a-770939089272",
+                "uuid": "00000000-0000-0000-0000-000000000001",
                 "entity_data": {
                     "name": "dock1",
-                    "uuid": "72d3f5f8-cdd1-4af2-b69a-770939089272",
+                    "uuid": "00000000-0000-0000-0000-000000000001",
                     "base_image": "nginx:1.7.9",
                     "networks": [
                         {
@@ -71,10 +71,10 @@
                 "name": "2",
                 "version": 1,
                 "type": "docker",
-                "uuid": "5e9cca5c-eb5b-448f-9f78-5c5b3c8a3481",
+                "uuid": "00000000-0000-0000-0000-000000000002",
                 "entity_data": {
                     "name": "dock2",
-                    "uuid": "5e9cca5c-eb5b-448f-9f78-5c5b3c8a3481",
+                    "uuid": "00000000-0000-0000-0000-0000000000002",
                     "base_image": "nginx:1.7.9",
                     "networks": [
                         {
@@ -95,10 +95,10 @@
                 "name": "3",
                 "version": 1,
                 "type": "docker",
-                "uuid": "38b2aa19-2ed6-4a50-939b-9a4adcd7d176",
+                "uuid": "00000000-0000-0000-0000-0000000000003",
                 "entity_data": {
                     "name": "dock3",
-                    "uuid": "38b2aa19-2ed6-4a50-939b-9a4adcd7d176",
+                    "uuid": "00000000-0000-0000-0000-0000000000003",
                     "base_image": "file:///home/ubuntu/nginx.tar.gz",
                     "networks": [
                         {

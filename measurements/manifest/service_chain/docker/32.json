@@ -15,10 +15,10 @@
                 "name": "0",
                 "version": 1,
                 "type": "docker",
-                "uuid": "d5759c53-3791-4c24-aff0-a65c1e573596",
+                "uuid": "00000000-0000-0000-0000-000000000000",
                 "entity_data": {
                     "name": "dock0",
-                    "uuid": "d5759c53-3791-4c24-aff0-a65c1e573596",
+                    "uuid": "00000000-0000-0000-0000-000000000000",
                     "base_image": "nginx:1.7.9",
                     "networks": [
                         {
@@ -38,15 +38,795 @@
         {
             "name": "bench1",
             "node": "971cb99403484d2e8d3a3477085e7069",
-            "need": [],
+            "need": [
+                "bench2"
+            ],
             "manifest": {
                 "name": "1",
                 "version": 1,
                 "type": "docker",
-                "uuid": "38b2aa19-2ed6-4a50-939b-9a4adcd7d176",
+                "uuid": "00000000-0000-0000-0000-000000000001",
                 "entity_data": {
                     "name": "dock1",
-                    "uuid": "38b2aa19-2ed6-4a50-939b-9a4adcd7d176",
+                    "uuid": "00000000-0000-0000-0000-000000000001",
+                    "base_image": "nginx:1.7.9",
+                    "networks": [
+                        {
+                            "intf_name": "eth0",
+                            "br_name": "virbr0"
+                        }
+                    ],
+                    "user-data": "",
+                    "ssh-key": ""
+                }
+            }
+        },
+        {
+            "name": "bench2",
+            "node": "971cb99403484d2e8d3a3477085e7069",
+            "need": [
+                "bench3"
+            ],
+            "manifest": {
+                "name": "2",
+                "version": 1,
+                "type": "docker",
+                "uuid": "00000000-0000-0000-0000-000000000002",
+                "entity_data": {
+                    "name": "dock2",
+                    "uuid": "00000000-0000-0000-0000-0000000000002",
+                    "base_image": "nginx:1.7.9",
+                    "networks": [
+                        {
+                            "intf_name": "eth0",
+                            "br_name": "virbr0"
+                        }
+                    ],
+                    "user-data": "",
+                    "ssh-key": ""
+                }
+            }
+        },
+        {
+            "name": "bench3",
+            "node": "971cb99403484d2e8d3a3477085e7069",
+            "need": [
+                "bench4"
+            ],
+            "manifest": {
+                "name": "3",
+                "version": 1,
+                "type": "docker",
+                "uuid": "00000000-0000-0000-0000-000000000003",
+                "entity_data": {
+                    "name": "dock3",
+                    "uuid": "00000000-0000-0000-0000-000000000003",
+                    "base_image": "nginx:1.7.9",
+                    "networks": [
+                        {
+                            "intf_name": "eth0",
+                            "br_name": "virbr0"
+                        }
+                    ],
+                    "user-data": "",
+                    "ssh-key": ""
+                }
+            }
+        },
+        {
+            "name": "bench4",
+            "node": "971cb99403484d2e8d3a3477085e7069",
+            "need": [
+                "bench5"
+            ],
+            "manifest": {
+                "name": "4",
+                "version": 1,
+                "type": "docker",
+                "uuid": "00000000-0000-0000-0000-000000000004",
+                "entity_data": {
+                    "name": "dock4",
+                    "uuid": "00000000-0000-0000-0000-000000000004",
+                    "base_image": "nginx:1.7.9",
+                    "networks": [
+                        {
+                            "intf_name": "eth0",
+                            "br_name": "virbr0"
+                        }
+                    ],
+                    "user-data": "",
+                    "ssh-key": ""
+                }
+            }
+        },
+        {
+            "name": "bench5",
+            "node": "971cb99403484d2e8d3a3477085e7069",
+            "need": [
+                "bench6"
+            ],
+            "manifest": {
+                "name": "5",
+                "version": 1,
+                "type": "docker",
+                "uuid": "00000000-0000-0000-0000-000000000005",
+                "entity_data": {
+                    "name": "dock5",
+                    "uuid": "00000000-0000-0000-0000-000000000005",
+                    "base_image": "nginx:1.7.9",
+                    "networks": [
+                        {
+                            "intf_name": "eth0",
+                            "br_name": "virbr0"
+                        }
+                    ],
+                    "user-data": "",
+                    "ssh-key": ""
+                }
+            }
+        },
+        {
+            "name": "bench6",
+            "node": "971cb99403484d2e8d3a3477085e7069",
+            "need": [
+                "bench7"
+            ],
+            "manifest": {
+                "name": "4",
+                "version": 1,
+                "type": "docker",
+                "uuid": "00000000-0000-0000-0000-000000000006",
+                "entity_data": {
+                    "name": "dock6",
+                    "uuid": "00000000-0000-0000-0000-000000000006",
+                    "base_image": "nginx:1.7.9",
+                    "networks": [
+                        {
+                            "intf_name": "eth0",
+                            "br_name": "virbr0"
+                        }
+                    ],
+                    "user-data": "",
+                    "ssh-key": ""
+                }
+            }
+        },
+        {
+            "name": "bench7",
+            "node": "971cb99403484d2e8d3a3477085e7069",
+            "need": [
+                "bench8"
+            ],
+            "manifest": {
+                "name": "7",
+                "version": 1,
+                "type": "docker",
+                "uuid": "00000000-0000-0000-0000-000000000007",
+                "entity_data": {
+                    "name": "dock7",
+                    "uuid": "00000000-0000-0000-0000-000000000007",
+                    "base_image": "nginx:1.7.9",
+                    "networks": [
+                        {
+                            "intf_name": "eth0",
+                            "br_name": "virbr0"
+                        }
+                    ],
+                    "user-data": "",
+                    "ssh-key": ""
+                }
+            }
+        },
+        {
+            "name": "bench8",
+            "node": "971cb99403484d2e8d3a3477085e7069",
+            "need": [
+                "bench9"
+            ],
+            "manifest": {
+                "name": "8",
+                "version": 1,
+                "type": "docker",
+                "uuid": "00000000-0000-0000-0000-000000000008",
+                "entity_data": {
+                    "name": "dock8",
+                    "uuid": "00000000-0000-0000-0000-000000000008",
+                    "base_image": "nginx:1.7.9",
+                    "networks": [
+                        {
+                            "intf_name": "eth0",
+                            "br_name": "virbr0"
+                        }
+                    ],
+                    "user-data": "",
+                    "ssh-key": ""
+                }
+            }
+        },
+        {
+            "name": "bench9",
+            "node": "971cb99403484d2e8d3a3477085e7069",
+            "need": [
+                "bench10"
+            ],
+            "manifest": {
+                "name": "9",
+                "version": 1,
+                "type": "docker",
+                "uuid": "00000000-0000-0000-0000-000000000009",
+                "entity_data": {
+                    "name": "dock9",
+                    "uuid": "00000000-0000-0000-0000-000000000009",
+                    "base_image": "nginx:1.7.9",
+                    "networks": [
+                        {
+                            "intf_name": "eth0",
+                            "br_name": "virbr0"
+                        }
+                    ],
+                    "user-data": "",
+                    "ssh-key": ""
+                }
+            }
+        },
+        {
+            "name": "bench10",
+            "node": "971cb99403484d2e8d3a3477085e7069",
+            "need": [
+                "bench11"
+            ],
+            "manifest": {
+                "name": "10",
+                "version": 1,
+                "type": "docker",
+                "uuid": "00000000-0000-0000-0000-000000000010",
+                "entity_data": {
+                    "name": "dock10",
+                    "uuid": "00000000-0000-0000-0000-000000000010",
+                    "base_image": "nginx:1.7.9",
+                    "networks": [
+                        {
+                            "intf_name": "eth0",
+                            "br_name": "virbr0"
+                        }
+                    ],
+                    "user-data": "",
+                    "ssh-key": ""
+                }
+            }
+        },
+        {
+            "name": "bench11",
+            "node": "971cb99403484d2e8d3a3477085e7069",
+            "need": [
+                "bench12"
+            ],
+            "manifest": {
+                "name": "11",
+                "version": 1,
+                "type": "docker",
+                "uuid": "00000000-0000-0000-0000-00000000011",
+                "entity_data": {
+                    "name": "dock11",
+                    "uuid": "00000000-0000-0000-0000-0000000000011",
+                    "base_image": "nginx:1.7.9",
+                    "networks": [
+                        {
+                            "intf_name": "eth0",
+                            "br_name": "virbr0"
+                        }
+                    ],
+                    "user-data": "",
+                    "ssh-key": ""
+                }
+            }
+        },
+        {
+            "name": "bench12",
+            "node": "971cb99403484d2e8d3a3477085e7069",
+            "need": [
+                "bench13"
+            ],
+            "manifest": {
+                "name": "12",
+                "version": 1,
+                "type": "docker",
+                "uuid": "00000000-0000-0000-0000-000000000012",
+                "entity_data": {
+                    "name": "dock12",
+                    "uuid": "00000000-0000-0000-0000-000000000012",
+                    "base_image": "nginx:1.7.9",
+                    "networks": [
+                        {
+                            "intf_name": "eth0",
+                            "br_name": "virbr0"
+                        }
+                    ],
+                    "user-data": "",
+                    "ssh-key": ""
+                }
+            }
+        },
+        {
+            "name": "bench13",
+            "node": "971cb99403484d2e8d3a3477085e7069",
+            "need": [
+                "bench14"
+            ],
+            "manifest": {
+                "name": "13",
+                "version": 1,
+                "type": "docker",
+                "uuid": "00000000-0000-0000-0000-000000000013",
+                "entity_data": {
+                    "name": "dock12",
+                    "uuid": "00000000-0000-0000-0000-000000000013",
+                    "base_image": "nginx:1.7.9",
+                    "networks": [
+                        {
+                            "intf_name": "eth0",
+                            "br_name": "virbr0"
+                        }
+                    ],
+                    "user-data": "",
+                    "ssh-key": ""
+                }
+            }
+        },
+        {
+            "name": "bench14",
+            "node": "971cb99403484d2e8d3a3477085e7069",
+            "need": [
+                "bench15"
+            ],
+            "manifest": {
+                "name": "14",
+                "version": 1,
+                "type": "docker",
+                "uuid": "00000000-0000-0000-0000-000000000014",
+                "entity_data": {
+                    "name": "dock12",
+                    "uuid": "00000000-0000-0000-0000-000000000014",
+                    "base_image": "nginx:1.7.9",
+                    "networks": [
+                        {
+                            "intf_name": "eth0",
+                            "br_name": "virbr0"
+                        }
+                    ],
+                    "user-data": "",
+                    "ssh-key": ""
+                }
+            }
+        },
+        {
+            "name": "bench15",
+            "node": "971cb99403484d2e8d3a3477085e7069",
+            "need": [
+                "bench16"
+            ],
+            "manifest": {
+                "name": "15",
+                "version": 1,
+                "type": "docker",
+                "uuid": "00000000-0000-0000-0000-000000000015",
+                "entity_data": {
+                    "name": "dock15",
+                    "uuid": "00000000-0000-0000-0000-000000000015",
+                    "base_image": "nginx:1.7.9",
+                    "networks": [
+                        {
+                            "intf_name": "eth0",
+                            "br_name": "virbr0"
+                        }
+                    ],
+                    "user-data": "",
+                    "ssh-key": ""
+                }
+            }
+        },
+        {
+            "name": "bench16",
+            "node": "971cb99403484d2e8d3a3477085e7069",
+            "need": [
+                "bench17"
+            ],
+            "manifest": {
+                "name": "16",
+                "version": 1,
+                "type": "docker",
+                "uuid": "00000000-0000-0000-0000-0000000000016",
+                "entity_data": {
+                    "name": "dock16",
+                    "uuid": "00000000-0000-0000-0000-0000000000002",
+                    "base_image": "nginx:1.7.9",
+                    "networks": [
+                        {
+                            "intf_name": "eth0",
+                            "br_name": "virbr0"
+                        }
+                    ],
+                    "user-data": "",
+                    "ssh-key": ""
+                }
+            }
+        },
+        {
+            "name": "bench17",
+            "node": "971cb99403484d2e8d3a3477085e7069",
+            "need": [
+                "bench18"
+            ],
+            "manifest": {
+                "name": "17",
+                "version": 1,
+                "type": "docker",
+                "uuid": "00000000-0000-0000-0000-000000000017",
+                "entity_data": {
+                    "name": "dock17",
+                    "uuid": "00000000-0000-0000-0000-000000000017",
+                    "base_image": "nginx:1.7.9",
+                    "networks": [
+                        {
+                            "intf_name": "eth0",
+                            "br_name": "virbr0"
+                        }
+                    ],
+                    "user-data": "",
+                    "ssh-key": ""
+                }
+            }
+        },
+        {
+            "name": "bench18",
+            "node": "971cb99403484d2e8d3a3477085e7069",
+            "need": [
+                "bench19"
+            ],
+            "manifest": {
+                "name": "18",
+                "version": 1,
+                "type": "docker",
+                "uuid": "00000000-0000-0000-0000-000000000018",
+                "entity_data": {
+                    "name": "dock18",
+                    "uuid": "00000000-0000-0000-0000-000000000018",
+                    "base_image": "nginx:1.7.9",
+                    "networks": [
+                        {
+                            "intf_name": "eth0",
+                            "br_name": "virbr0"
+                        }
+                    ],
+                    "user-data": "",
+                    "ssh-key": ""
+                }
+            }
+        },
+        {
+            "name": "bench19",
+            "node": "971cb99403484d2e8d3a3477085e7069",
+            "need": [
+                "bench20"
+            ],
+            "manifest": {
+                "name": "19",
+                "version": 1,
+                "type": "docker",
+                "uuid": "00000000-0000-0000-0000-000000000019",
+                "entity_data": {
+                    "name": "dock19",
+                    "uuid": "00000000-0000-0000-0000-000000000019",
+                    "base_image": "nginx:1.7.9",
+                    "networks": [
+                        {
+                            "intf_name": "eth0",
+                            "br_name": "virbr0"
+                        }
+                    ],
+                    "user-data": "",
+                    "ssh-key": ""
+                }
+            }
+        },
+        {
+            "name": "bench20",
+            "node": "971cb99403484d2e8d3a3477085e7069",
+            "need": [
+                "bench21"
+            ],
+            "manifest": {
+                "name": "20",
+                "version": 1,
+                "type": "docker",
+                "uuid": "00000000-0000-0000-0000-000000000020",
+                "entity_data": {
+                    "name": "dock20",
+                    "uuid": "00000000-0000-0000-0000-000000000020",
+                    "base_image": "nginx:1.7.9",
+                    "networks": [
+                        {
+                            "intf_name": "eth0",
+                            "br_name": "virbr0"
+                        }
+                    ],
+                    "user-data": "",
+                    "ssh-key": ""
+                }
+            }
+        },
+        {
+            "name": "bench21",
+            "node": "971cb99403484d2e8d3a3477085e7069",
+            "need": [
+                "benc22"
+            ],
+            "manifest": {
+                "name": "21",
+                "version": 1,
+                "type": "docker",
+                "uuid": "00000000-0000-0000-0000-000000000021",
+                "entity_data": {
+                    "name": "dock21",
+                    "uuid": "00000000-0000-0000-0000-000000000021",
+                    "base_image": "nginx:1.7.9",
+                    "networks": [
+                        {
+                            "intf_name": "eth0",
+                            "br_name": "virbr0"
+                        }
+                    ],
+                    "user-data": "",
+                    "ssh-key": ""
+                }
+            }
+        },
+        {
+            "name": "bench22",
+            "node": "971cb99403484d2e8d3a3477085e7069",
+            "need": [
+                "bench23"
+            ],
+            "manifest": {
+                "name": "8",
+                "version": 1,
+                "type": "docker",
+                "uuid": "00000000-0000-0000-0000-000000000022",
+                "entity_data": {
+                    "name": "dock22",
+                    "uuid": "00000000-0000-0000-0000-000000000022",
+                    "base_image": "nginx:1.7.9",
+                    "networks": [
+                        {
+                            "intf_name": "eth0",
+                            "br_name": "virbr0"
+                        }
+                    ],
+                    "user-data": "",
+                    "ssh-key": ""
+                }
+            }
+        },
+        {
+            "name": "bench23",
+            "node": "971cb99403484d2e8d3a3477085e7069",
+            "need": [
+                "bench24"
+            ],
+            "manifest": {
+                "name": "23",
+                "version": 1,
+                "type": "docker",
+                "uuid": "00000000-0000-0000-0000-000000000023",
+                "entity_data": {
+                    "name": "dock23",
+                    "uuid": "00000000-0000-0000-0000-000000000023",
+                    "base_image": "nginx:1.7.9",
+                    "networks": [
+                        {
+                            "intf_name": "eth0",
+                            "br_name": "virbr0"
+                        }
+                    ],
+                    "user-data": "",
+                    "ssh-key": ""
+                }
+            }
+        },
+        {
+            "name": "bench24",
+            "node": "971cb99403484d2e8d3a3477085e7069",
+            "need": [
+                "bench25"
+            ],
+            "manifest": {
+                "name": "24",
+                "version": 1,
+                "type": "docker",
+                "uuid": "00000000-0000-0000-0000-000000000024",
+                "entity_data": {
+                    "name": "dock24",
+                    "uuid": "00000000-0000-0000-0000-000000000024",
+                    "base_image": "nginx:1.7.9",
+                    "networks": [
+                        {
+                            "intf_name": "eth0",
+                            "br_name": "virbr0"
+                        }
+                    ],
+                    "user-data": "",
+                    "ssh-key": ""
+                }
+            }
+        },
+        {
+            "name": "bench25",
+            "node": "971cb99403484d2e8d3a3477085e7069",
+            "need": [
+                "bench26"
+            ],
+            "manifest": {
+                "name": "25",
+                "version": 1,
+                "type": "docker",
+                "uuid": "00000000-0000-0000-0000-00000000025",
+                "entity_data": {
+                    "name": "dock25",
+                    "uuid": "00000000-0000-0000-0000-0000000000025",
+                    "base_image": "nginx:1.7.9",
+                    "networks": [
+                        {
+                            "intf_name": "eth0",
+                            "br_name": "virbr0"
+                        }
+                    ],
+                    "user-data": "",
+                    "ssh-key": ""
+                }
+            }
+        },
+        {
+            "name": "bench26",
+            "node": "971cb99403484d2e8d3a3477085e7069",
+            "need": [
+                "bench27"
+            ],
+            "manifest": {
+                "name": "26",
+                "version": 1,
+                "type": "docker",
+                "uuid": "00000000-0000-0000-0000-000000000026",
+                "entity_data": {
+                    "name": "dock26",
+                    "uuid": "00000000-0000-0000-0000-000000000026",
+                    "base_image": "nginx:1.7.9",
+                    "networks": [
+                        {
+                            "intf_name": "eth0",
+                            "br_name": "virbr0"
+                        }
+                    ],
+                    "user-data": "",
+                    "ssh-key": ""
+                }
+            }
+        },
+        {
+            "name": "bench27",
+            "node": "971cb99403484d2e8d3a3477085e7069",
+            "need": [
+                "bench28"
+            ],
+            "manifest": {
+                "name": "27",
+                "version": 1,
+                "type": "docker",
+                "uuid": "00000000-0000-0000-0000-000000000027",
+                "entity_data": {
+                    "name": "dock27",
+                    "uuid": "00000000-0000-0000-0000-000000000027",
+                    "base_image": "nginx:1.7.9",
+                    "networks": [
+                        {
+                            "intf_name": "eth0",
+                            "br_name": "virbr0"
+                        }
+                    ],
+                    "user-data": "",
+                    "ssh-key": ""
+                }
+            }
+        },
+        {
+            "name": "bench28",
+            "node": "971cb99403484d2e8d3a3477085e7069",
+            "need": [
+                "bench29"
+            ],
+            "manifest": {
+                "name": "28",
+                "version": 1,
+                "type": "docker",
+                "uuid": "00000000-0000-0000-0000-000000000028",
+                "entity_data": {
+                    "name": "dock28",
+                    "uuid": "00000000-0000-0000-0000-000000000028",
+                    "base_image": "nginx:1.7.9",
+                    "networks": [
+                        {
+                            "intf_name": "eth0",
+                            "br_name": "virbr0"
+                        }
+                    ],
+                    "user-data": "",
+                    "ssh-key": ""
+                }
+            }
+        },
+        {
+            "name": "bench29",
+            "node": "971cb99403484d2e8d3a3477085e7069",
+            "need": [
+                "bench30"
+            ],
+            "manifest": {
+                "name": "29",
+                "version": 1,
+                "type": "docker",
+                "uuid": "00000000-0000-0000-0000-000000000029",
+                "entity_data": {
+                    "name": "dock29",
+                    "uuid": "00000000-0000-0000-0000-000000000029",
+                    "base_image": "nginx:1.7.9",
+                    "networks": [
+                        {
+                            "intf_name": "eth0",
+                            "br_name": "virbr0"
+                        }
+                    ],
+                    "user-data": "",
+                    "ssh-key": ""
+                }
+            }
+        },
+        {
+            "name": "bench30",
+            "node": "971cb99403484d2e8d3a3477085e7069",
+            "need": [
+                "bench31"
+            ],
+            "manifest": {
+                "name": "28",
+                "version": 1,
+                "type": "docker",
+                "uuid": "00000000-0000-0000-0000-000000000030",
+                "entity_data": {
+                    "name": "dock30",
+                    "uuid": "00000000-0000-0000-0000-000000000030",
+                    "base_image": "nginx:1.7.9",
+                    "networks": [
+                        {
+                            "intf_name": "eth0",
+                            "br_name": "virbr0"
+                        }
+                    ],
+                    "user-data": "",
+                    "ssh-key": ""
+                }
+            }
+        },
+        {
+            "name": "bench31",
+            "node": "971cb99403484d2e8d3a3477085e7069",
+            "need": [],
+            "manifest": {
+                "name": "31",
+                "version": 1,
+                "type": "docker",
+                "uuid": "00000000-0000-0000-0000-000000000031",
+                "entity_data": {
+                    "name": "dock31",
+                    "uuid": "00000000-0000-0000-0000-000000000031",
                     "base_image": "file:///home/ubuntu/nginx.tar.gz",
                     "networks": [
                         {

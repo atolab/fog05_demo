@@ -65,11 +65,15 @@ def main(tries, chain_length):
             api_response = api.create_namespaced_deployment(
                 body=dep,
                 namespace="default")
+            pods = v1.list_namespaced_pod("default").items
+            while len(pods) != i+1:
+                pods = v1.list_namespaced_pod("default").items
+            pod = [x for x in i if name in x.metadata.name][0]
+            while len(pod.containers) == 0:
+                pods = v1.list_namespaced_pod("default").items
+                pod = [x for x in i if name in x.metadata.name][0]
             deployments.append((name, dep))
 
-        i = v1.list_namespaced_pod("default").items
-        while len(i) == 0:
-            i = v1.list_namespaced_pod("default").items
         cont = [x for x in i if x.spec.containers[0].name == name][0]
         ip = None
         ip = cont.status.pod_ip

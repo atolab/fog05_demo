@@ -68,7 +68,7 @@ def main(tries, chain_length):
             pods = v1.list_namespaced_pod("default").items
             while len(pods) != i+1:
                 pods = v1.list_namespaced_pod("default").items
-            pod = [x for x in i if name in x.metadata.name][0]
+            pod = [x for x in pods if name in x.metadata.name][0]
             while len(pod.containers) == 0:
                 pods = v1.list_namespaced_pod("default").items
                 pod = [x for x in pods if name in x.metadata.name][0]

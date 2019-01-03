@@ -75,7 +75,7 @@ def main(tries, chain_length):
             deployments.append((name, dep))
 
         pods = v1.list_namespaced_pod("default").items
-        while len(pods) != i+1:
+        while len(pods) == 0:
             pods = v1.list_namespaced_pod("default").items
         cont = [x for x in pods if x.spec.containers[0].name == name][0]
         ip = None

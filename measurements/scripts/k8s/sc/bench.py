@@ -13,33 +13,29 @@ def read_file(filepath):
     return data
 
 
-def create_deployment_object(name, ports=False):
+def create_deployment_object(name, port):
     # Configureate Pod template container
-    if ports:
-        container = client.V1Container(
-            name=name,
-            image="nginx:1.7.9",
-            ports=[client.V1ContainerPort(container_port=80)])
-    else:
-        container = client.V1Container(
-            name=name,
-            image="nginx:1.7.9")
-    # Create and configurate a spec section
-    template = client.V1PodTemplateSpec(
-        metadata=client.V1ObjectMeta(labels={"app": "nginx"}),
-        spec=client.V1PodSpec(containers=[container]))
-    # Create the specification of deployment
-    spec = client.ExtensionsV1beta1DeploymentSpec(
-        replicas=1,
-        template=template)
-    # Instantiate the deployment object
-    deployment = client.ExtensionsV1beta1Deployment(
-        api_version="extensions/v1beta1",
-        kind="Deployment",
-        metadata=client.V1ObjectMeta(name=name),
-        spec=spec)
 
-    return deployment
+    container = client.V1Container(
+        name=name,
+        image="nginx:1.7.9",
+        ports=[client.V1ContainerPort(container_port=port)])
+    # Create and configurate a spec section
+        template = client.V1PodTemplateSpec(
+            metadata=client.V1ObjectMeta(labels={"app": "nginx"}),
+            spec=client.V1PodSpec(containers=[container]))
+        # Create the specification of deployment
+        spec = client.ExtensionsV1beta1DeploymentSpec(
+            replicas=1,
+            template=template)
+        # Instantiate the deployment object
+        deployment = client.ExtensionsV1beta1Deployment(
+            api_version="extensions/v1beta1",
+            kind="Deployment",
+            metadata=client.V1ObjectMeta(name=name),
+            spec=spec)
+
+        return deployment
 
 
 def main(tries, chain_length):
@@ -59,9 +55,10 @@ def main(tries, chain_length):
         for i in range(0, chain_length):
             name = 'item{}'.format(i)
             if i == (chain_length-1):
-                dep = create_deployment_object(name, ports=True)
+                dep = create_deployment_object(name, 80)
             else:
-                dep = create_deployment_object(name)
+                p = int('80{}'.format(i))
+                dep = create_deployment_object(name, p)
             api_response = api.create_namespaced_deployment(
                 body=dep,
                 namespace="default")
@@ -72,10 +69,23 @@ def main(tries, chain_length):
             while len(pod.spec.containers) == 0:
                 pods = v1.list_namespaced_pod("default").items
                 pod = [x for x in pods if name in x.metadata.name][0]
+            cont = [x for x in pods if x.spec.containers[0].name == name][0]
+            while ip is None:
+                pods = v1.list_namespaced_pod("default").items
+                cont = [x for x in pods if x.spec.containers[0].name == name][0]
+                ip = cont.status.pod_ip
+            if i < (chain_length-1):
+                flag = False
+                while not flag:
+                try:
+                    r = requests.get('http://{}:{}'.format(ip, p), timeout=0.1)
+                    flag = True
+                except:
+                    flag = False
             deployments.append((name, dep))
 
         pods = v1.list_namespaced_pod("default").items
-        while len(pods) == 0:
+        while len(pods) < chain_length:
             pods = v1.list_namespaced_pod("default").items
         cont = [x for x in pods if x.spec.containers[0].name == name][0]
         ip = cont.status.pod_ip
@@ -112,10 +122,9 @@ def main(tries, chain_length):
         print('Run {} took: {} '.format(index+1, t_dep))
 
     data = {
-        'k8s_total_tries': tries,
         'k8s_deploy_times': dep_res
     }
-    scipy.io.savemat('results-hv-{}.mat'.format(token), data)
+    scipy.io.savemat('results-k8s-{}-{}.mat'.format(chain_length, tries), data)
     exit(0)
 
 

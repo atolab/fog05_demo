@@ -59,7 +59,8 @@ def main(tries, chain_length):
     data = {
         'docker_deploy_times': dep_res
     }
-    scipy.io.savemat('results-hv-{}.mat'.format(token), data)
+    scipy.io.savemat(
+        'results-docker-{}-{}.mat'.format(chain_length, tries), data)
     exit(0)
 
 

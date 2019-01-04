@@ -57,7 +57,10 @@ def main(tries, chain_length):
             if i == (chain_length-1):
                 dep = create_deployment_object(name, 80)
             else:
-                p = int('80{}'.format(i))
+                if i < 10:
+                    p = int('808{}'.format(i))
+                else:
+                    p = int('80{}'.format(i))
                 dep = create_deployment_object(name, p)
             api_response = api.create_namespaced_deployment(
                 body=dep,

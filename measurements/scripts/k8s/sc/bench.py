@@ -19,7 +19,7 @@ def create_deployment_object(name, port):
     container = client.V1Container(
         name=name,
         image="nginx:1.7.9",
-        ports=[client.V1ContainerPort(container_port=port)])
+        ports=[client.V1ContainerPort(container_port=80, host_port=port)])
     # Create and configurate a spec section
     template = client.V1PodTemplateSpec(
         metadata=client.V1ObjectMeta(labels={"app": "nginx"}),
@@ -83,7 +83,7 @@ def main(tries, chain_length):
                 while not flag:
                     try:
                         r = requests.get(
-                            'http://{}:{}'.format(ip, p), timeout=0.1)
+                            'http://{}:{}'.format('127.0.0.1', p), timeout=0.1)
                         flag = True
                     except:
                         flag = False

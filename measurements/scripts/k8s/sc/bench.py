@@ -77,11 +77,12 @@ def main(tries, chain_length):
             if i < (chain_length-1):
                 flag = False
                 while not flag:
-                try:
-                    r = requests.get('http://{}:{}'.format(ip, p), timeout=0.1)
-                    flag = True
-                except:
-                    flag = False
+                    try:
+                        r = requests.get(
+                            'http://{}:{}'.format(ip, p), timeout=0.1)
+                        flag = True
+                    except:
+                        flag = False
             deployments.append((name, dep))
 
         pods = v1.list_namespaced_pod("default").items

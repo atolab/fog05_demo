@@ -73,6 +73,8 @@ def main(tries, chain_length):
             while cont.status.pod_ip is None:
                 pods = v1.list_namespaced_pod("default").items
                 cont = [x for x in pods if x.spec.containers[0].name == name][0]
+            ip = cont.status.pod_ip
+            print('IP is {}'.format(ip))
             if i < (chain_length-1):
                 flag = False
                 while not flag:

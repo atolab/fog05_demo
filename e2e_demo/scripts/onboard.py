@@ -15,8 +15,8 @@ def read_file(filepath):
     return data
 
 
-def main(entity_path):
-    a = API(endpoint='192.168.86.44')
+def main(ip, entity_path):
+    a = API(endpoint=ip)
     e_manifest = json.loads(read_file(entity_path))
     #p_manifest = json.loads(read_file('./native_plugin.json'))
 
@@ -62,7 +62,7 @@ def main(entity_path):
 
 
 if __name__ == '__main__':
-    if len(sys.argv) < 2:
-        print('[Usage] {} <path to entity manifest>'.format(sys.argv[0]))
+    if len(sys.argv) < 3:
+        print('[Usage] {} <yaksip> <path to entity manifest>'.format(sys.argv[0]))
         exit(0)
-    main(sys.argv[1])
+    main(sys.argv[1], sys.argv[2])

@@ -25,14 +25,14 @@
                 "vpci": "0:0:0",
                 "bandwidth": 10
             },
-            "cp_id": "123"
+            "cp_id": "b33a451c-75e6-48f2-9c8e-420119b1a577"
         }
     ],
     "io_ports": [],
     "connection_points": [
         {
-            "uuid": "123",
-            "vnet_id": "net1"
+            "uuid": "b33a451c-75e6-48f2-9c8e-420119b1a577",
+            "vnet_id": "6cc2aa30-1dcf-4c93-a57e-433fd0bd498e"
         }
     ]
 }

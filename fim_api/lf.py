@@ -12,7 +12,7 @@ def read_file(filepath):
 
 
 def main(ip, fdufile, netfile):
-    a = API(endpoint=ip)
+    a = FIMAPIv2(ip)
 
     nodes = a.node.list()
     if len(nodes) == 0:
@@ -24,7 +24,7 @@ def main(ip, fdufile, netfile):
         print('UUID: {}'.format(n))
 
     fdu_d = json.loads(read_file(fdufile))
-    net_d = json.loads(read_file(net_d))
+    net_d = json.loads(read_file(netfile))
 
     e_uuid = fdu_d.get('uuid')
     n_uuid = net_d.get('uuid')
@@ -37,12 +37,12 @@ def main(ip, fdufile, netfile):
     n1 = 'e0e442af51d14802a9bc71b5e634440e'
 
     input('Press enter to define')
-    a.entity.define(e_manifest, n1, wait=True)
+    a.fdu.define(fdu_d, n1, wait=True)
     #a.entity.define(e_manifest, n2, wait=True)
     input('Press enter to configure')
-    a.entity.configure(e_uuid, n1, wait=True)
+    a.fdu.configure(e_uuid, n1, wait=True)
     input('Press enter to run')
-    a.entity.run(e_uuid, n1, wait=True)
+    a.fdu.run(e_uuid, n1, wait=True)
 
     # input('Press enter to stop')
     # a.entity.stop(e_uuid, n1, i_uuid, wait=True)
@@ -57,9 +57,9 @@ def main(ip, fdufile, netfile):
     #print('Res is: {}'.format(res))
     input('Press enter to remove')
 
-    a.entity.stop(e_uuid, n1, wait=True)
-    a.entity.clean(e_uuid, n1, wait=True)
-    a.entity.undefine(e_uuid, n1, wait=True)
+    a.fdu.stop(e_uuid, n1, wait=True)
+    a.fdu.clean(e_uuid, n1, wait=True)
+    a.fdu.undefine(e_uuid, n1, wait=True)
 
     a.network.remove_network(n_uuid)
 
@@ -68,7 +68,7 @@ def main(ip, fdufile, netfile):
 
 if __name__ == '__main__':
     if len(sys.argv) < 4:
-        print('[Usage] {} <yaks ip> <path to fdu descripto> <path to net descriptor>'.format(
+        print('[Usage] {} <yaks ip:port> <path to fdu descripto> <path to net descriptor>'.format(
             sys.argv[0]))
         exit(0)
-    main(sys.argv[1], sys.argv[])
+    main(sys.argv[1], sys.argv[2], sys.argv[3])

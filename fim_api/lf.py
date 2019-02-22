@@ -60,7 +60,7 @@ def main(ip, fdufile, netfile):
     a.fdu.stop(e_uuid, n1, wait=True)
     a.fdu.clean(e_uuid, n1, wait=True)
     a.fdu.undefine(e_uuid, n1, wait=True)
-
+    input("Press enter to remove network")
     a.network.remove_network(n_uuid)
 
     exit(0)

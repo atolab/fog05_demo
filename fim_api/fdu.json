@@ -1,5 +1,5 @@
 {
-    "uuid": "123-345",
+    "uuid": "236ef5c1-a24b-47db-bdba-d523a9ca7ac1",
     "name": "test",
     "computation_requirements": {
         "cpu_arch": "x86_64",
@@ -25,13 +25,13 @@
                 "vpci": "0:0:0",
                 "bandwidth": 10
             },
-            "cp_id": "b33a451c-75e6-48f2-9c8e-420119b1a577"
+            "cp_id": "9bc19c95-b407-4c07-9352-d3f2a94321df"
         }
     ],
     "io_ports": [],
     "connection_points": [
         {
-            "uuid": "b33a451c-75e6-48f2-9c8e-420119b1a577",
+            "uuid": "9bc19c95-b407-4c07-9352-d3f2a94321df",
             "vnet_id": "6cc2aa30-1dcf-4c93-a57e-433fd0bd498e"
         }
     ]

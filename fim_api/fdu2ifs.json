@@ -1,6 +1,6 @@
 {
-    "uuid": "123-345",
-    "name": "test",
+    "uuid": "1b526aa7-408f-4d63-b58c-9e2dfd9451ed",
+    "name": "test2if",
     "computation_requirements": {
         "cpu_arch": "x86_64",
         "cpu_min_freq": 0.0,
@@ -9,8 +9,8 @@
         "storage_size_gb": 10
     },
     "base_image": {
-        "uri": "file:///home/ubuntu/nginx.tar.gz",
-        "checksum": "879a85e50091fd9bb71056eef78d4de933eb883e",
+        "uri": "file:///home/ubuntu/nginx2ifs.tar.gz",
+        "checksum": "72bf24e31db22dcea7419c1a88375104c6f0dc77",
         "format": "tar.gz"
     },
     "hypervisor_type": "LXD",

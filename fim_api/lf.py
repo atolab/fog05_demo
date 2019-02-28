@@ -36,8 +36,10 @@ def main(ip, fdufile, netfile):
     #n2 = '297b270c79eb45089b6979f86fbdaa96'
     n1 = 'e0e442af51d14802a9bc71b5e634440e'
 
+    input('press enter to onboard descriptor')
+    a.fdu.onboard(fdu_d, wait=True)
     input('Press enter to define')
-    a.fdu.define(fdu_d, n1, wait=True)
+    a.fdu.define(e_uuid, n1, wait=True)
     #a.entity.define(e_manifest, n2, wait=True)
     input('Press enter to configure')
     a.fdu.configure(e_uuid, n1, wait=True)
@@ -60,6 +62,7 @@ def main(ip, fdufile, netfile):
     a.fdu.stop(e_uuid, n1, wait=True)
     a.fdu.clean(e_uuid, n1, wait=True)
     a.fdu.undefine(e_uuid, n1, wait=True)
+    a.fdu.offload(e_uuid)
     input("Press enter to remove network")
     a.network.remove_network(n_uuid)
 

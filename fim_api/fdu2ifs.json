@@ -5,15 +5,17 @@
         "cpu_arch": "x86_64",
         "cpu_min_freq": 0.0,
         "cpu_min_count": 1,
-        "ram_size_mb": 128,
-        "storage_size_gb": 10
+        "ram_size_mb": 128.0,
+        "storage_size_gb": 5.0
     },
-    "base_image": {
+    "image": {
         "uri": "file:///home/ubuntu/nginx2ifs.tar.gz",
         "checksum": "72bf24e31db22dcea7419c1a88375104c6f0dc77",
         "format": "tar.gz"
     },
-    "hypervisor_type": "LXD",
+    "hypervisor": "LXD",
+    "migration_kind": "LIVE",
+    "depends_on": [],
     "interfaces": [
         {
             "name": "eth0",

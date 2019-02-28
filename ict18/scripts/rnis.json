@@ -9,7 +9,8 @@
             "1"
         ],
         "service-produced": [
-                {"id":"0",
+            {
+                "id": "0",
                 "ser-name": "Wifi RNIS",
                 "ser-category": {
                     "href": "http://something.in/the/catalog",
@@ -20,7 +21,7 @@
                 "version": "0.1",
                 "transport-supported": [
                     {
-                        "id":"0",
+                        "id": "0",
                         "transport": {
                             "type": "MB_PUBSUB",
                             "protocol": "MQTT",
@@ -37,7 +38,6 @@
                             "JSON"
                         ]
                     }
-
                 ]
             }
         ],

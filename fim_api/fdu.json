@@ -10,7 +10,7 @@
     },
     "image": {
         "uri": "file:///home/ubuntu/nginx.tar.gz",
-        "checksum": "21f436639dda7941a26d1eb0c5427862fd19910b",
+        "checksum": "ef3aa35e64cafef4d87190104adc023b8fa2f20b26c2e6697afde4a39673670a",
         "format": "tar.gz"
     },
     "hypervisor": "LXD",

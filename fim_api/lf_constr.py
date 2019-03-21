@@ -1,4 +1,4 @@
-from fog05 import FIMAPIv2
+from fog05 import FIMAPI
 import uuid
 import json
 import sys
@@ -12,7 +12,7 @@ def read_file(filepath):
 
 
 def main(ip, fdufile, n1):
-    a = FIMAPIv2(ip)
+    a = FIMAPI(ip)
 
     nodes = a.node.list()
     if len(nodes) == 0:

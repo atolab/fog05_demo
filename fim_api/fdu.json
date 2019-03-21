@@ -1,6 +1,6 @@
 {
     "uuid": "1e57bb0e-cb41-4b23-bca3-1fa761a83c02",
-    "name": "test",
+    "name": "test_1",
     "computation_requirements": {
         "cpu_arch": "x86_64",
         "cpu_min_freq": 0.0,

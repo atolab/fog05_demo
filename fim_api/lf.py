@@ -1,4 +1,4 @@
-from fog05 import FIMAPIv2
+from fog05 import FIMAPI
 import uuid
 import json
 import sys
@@ -12,7 +12,7 @@ def read_file(filepath):
 
 
 def main(ip, fdufile, netfile):
-    a = FIMAPIv2(ip)
+    a = FIMAPI(ip)
 
     nodes = a.node.list()
     if len(nodes) == 0:
@@ -34,8 +34,8 @@ def main(ip, fdufile, netfile):
 
     #n1 = '90c02ec42f2a47448d5f8e33ad7bf7e2'
     #n2 = '297b270c79eb45089b6979f86fbdaa96'
-    n1 = '16892ae12009411ab76998fdb7ccaf91'
-    #n1 = 'e0e442af51d14802a9bc71b5e634440e'
+    #n1 = '16892ae12009411ab76998fdb7ccaf91'
+    n1 = 'e0e442af51d14802a9bc71b5e634440e'
 
     input('press enter to onboard descriptor')
     a.fdu.onboard(fdu_d, wait=True)

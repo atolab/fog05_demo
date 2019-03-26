@@ -1,1 +1,0 @@
-Number Office_Temperature "Temperature [%.1f °C]" <temperature> {mqtt="<[mosquitto:booth/demo/tmp:state:default]"}

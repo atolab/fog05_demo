@@ -41,7 +41,6 @@ def main(ip, fdufile, netfile):
     a.fdu.onboard(fdu_d, wait=True)
     input('Press enter to define')
     a.fdu.define(e_uuid, n1, wait=True)
-    #a.entity.define(e_manifest, n2, wait=True)
     input('Press enter to configure')
     a.fdu.configure(e_uuid, n1, wait=True)
     input('Press enter to run')

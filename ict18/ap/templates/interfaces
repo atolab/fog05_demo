@@ -1,6 +1,0 @@
-auto lan
-iface lan inet manual
-
-auto br0
-iface br0 inet dhcp
-	bridge-ports lan wlan0	

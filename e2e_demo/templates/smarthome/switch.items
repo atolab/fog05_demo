@@ -1,1 +1,0 @@
-Switch Office_Light {mqtt=">[mosquitto:booth/demo/light:command:ON:1],>[mosquitto:booth/demo/light:command:OFF:0],<[mosquitto:booth/demo/light:state:ON:1],<[mosquitto:booth/demo/light:state:OFF:0]"}

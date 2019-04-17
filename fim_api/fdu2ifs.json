@@ -32,11 +32,11 @@
         {
             "name": "eth1",
             "is_mgmt": true,
-            "if_type": "INTERNAL",
+            "if_type": "EXTERNAL",
             "mac_address": "be:ef:be:ef:00:02",
             "virtual_interface": {
-                "intf_type": "BRIDGED",
-                "vpci": "lxdbr0",
+                "intf_type": "PHYSICAL",
+                "vpci": "wlan0",
                 "bandwidth": 10
             },
             "cp_id": "b33a451c-75e6-48f2-9c8e-420119b1a577"

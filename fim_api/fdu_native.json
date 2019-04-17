@@ -9,9 +9,9 @@
         "storage_size_gb": 1.0
     },
     "command": {
-        "binary": "ping",
+        "binary": "/home/ubuntu/zenohd",
         "args": [
-            "8.8.8.8"
+            "-vv"
         ]
     },
     "hypervisor": "BARE",

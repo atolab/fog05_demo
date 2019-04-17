@@ -36,32 +36,33 @@ def main(ip, fdufile, netfile):
     #n2 = '297b270c79eb45089b6979f86fbdaa96'
     #n1 = '16892ae12009411ab76998fdb7ccaf91'
     n1 = 'e0e442af51d14802a9bc71b5e634440e'
+    #n1 = 'a2d358aaaf2b42cb8d23a89e88b97e5c'
 
     input('press enter to onboard descriptor')
-    a.fdu.onboard(fdu_d, wait=True)
+    a.fdu.onboard(fdu_d)
     input('Press enter to define')
-    a.fdu.define(e_uuid, n1, wait=True)
+    intsid = a.fdu.define(e_uuid, n1)
     input('Press enter to configure')
-    a.fdu.configure(e_uuid, n1, wait=True)
+    a.fdu.configure(intsid)
     input('Press enter to run')
-    a.fdu.run(e_uuid, n1, wait=True)
+    a.fdu.start(intsid)
 
     # input('Press enter to stop')
-    # a.entity.stop(e_uuid, n1, i_uuid, wait=True)
+    # a.entity.stop(e_uuid, n1, i_uuid)
     # input('Press enter to clean')
-    # a.entity.clean(e_uuid, n1, i_uuid, wait=True)
+    # a.entity.clean(e_uuid, n1, i_uuid)
     # input('Press enter to undefine')
-    # a.entity.undefine(e_uuid, n1, wait=True)
+    # a.entity.undefine(e_uuid, n1)
 
     # input('Press enter to migrate')
 
-    #res = a.entity.migrate(e_uuid, i_uuid, n1, n2, wait=True)
+    #res = a.entity.migrate(e_uuid, i_uuid, n1, n2)
     #print('Res is: {}'.format(res))
     input('Press enter to remove')
 
-    a.fdu.stop(e_uuid, n1, wait=True)
-    a.fdu.clean(e_uuid, n1, wait=True)
-    a.fdu.undefine(e_uuid, n1, wait=True)
+    a.fdu.stop(intsid)
+    a.fdu.clean(intsid)
+    a.fdu.undefine(intsid)
     a.fdu.offload(e_uuid)
     input("Press enter to remove network")
     a.network.remove_network(n_uuid)

@@ -32,14 +32,14 @@ def main(ip, fdufile, n1):
     #n1 = '21e48018-d4c3-499e-baee-6990e33a6c0c'
 
     input('press enter to onboard descriptor')
-    a.fdu.onboard(fdu_d, wait=True)
+    a.fdu.onboard(fdu_d)
     input('Press enter to define')
-    a.fdu.define(e_uuid, n1, wait=True)
+    iid = a.fdu.define(e_uuid, n1)
     #a.entity.define(e_manifest, n2, wait=True)
     input('Press enter to configure')
-    a.fdu.configure(e_uuid, n1, wait=True)
+    a.fdu.configure(iid)
     input('Press enter to run')
-    a.fdu.run(e_uuid, n1, wait=True)
+    a.fdu.start(iid)
 
     # input('Press enter to stop')
     # a.entity.stop(e_uuid, n1, i_uuid, wait=True)
@@ -54,9 +54,9 @@ def main(ip, fdufile, n1):
     #print('Res is: {}'.format(res))
     input('Press enter to remove')
 
-    a.fdu.stop(e_uuid, n1, wait=True)
-    a.fdu.clean(e_uuid, n1, wait=True)
-    a.fdu.undefine(e_uuid, n1, wait=True)
+    a.fdu.stop(iid)
+    a.fdu.clean(iid)
+    a.fdu.undefine(iid)
     a.fdu.offload(e_uuid)
     exit(0)
 

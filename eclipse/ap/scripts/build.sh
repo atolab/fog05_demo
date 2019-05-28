@@ -18,6 +18,6 @@ lxc exec ap -- rc-update add dnsmasq
 
 lxc file push ../templates/interfaces ap/etc/network/interfaces
 lxc file push ../templates/hostapd.conf ap/etc/hostapd/hostapd.conf
-
+lxc file push ../templates/mec-gw.conf ap/etc/dnsmasq.d/mec-gw.conf
 
 

@@ -1,7 +1,5 @@
 #!/bin/bash
 
-echo $WFACE | xargs -i sed -i -e "s/wlan/{}/g" ../templates/interfaces
-
 lxc launch images:alpine/3.6 gw
 
 lxc exec gw -- apk update

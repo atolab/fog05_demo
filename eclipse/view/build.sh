@@ -6,6 +6,7 @@ lxc launch images:alpine/3.6 webui
 lxc exec webui -- apk update
 lxc exec webui -- apk add nodejs-npm nginx nodejs
 lxc exec webui -- npm install mqtt
+lxc exec webui -- cp -r node_modules/ /var/www/localhost/htdocs/
 
 lxc file push ./templates/interfaces webui/etc/network/interfaces
 lxc file push ./templates/backend webui/etc/init.d/backend

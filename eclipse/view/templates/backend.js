@@ -4,7 +4,7 @@ const WebSocket = require('ws');
 const wss = new WebSocket.Server({ port: 8080 });
 
 wss.on('connection', function connection(ws) {
-    var client = mqtt.connect({ host: 'broker', port: 1883 })
+    var client = mqtt.connect({ host: '172.16.123.10', port: 1883 })
 
     client.on('connect', function () {
         client.subscribe('//1/rins', function (err) {

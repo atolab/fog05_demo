@@ -3,7 +3,7 @@
 WFACE=$1
 
 lxc profile copy default ap_p
-lxc profile device add ap_p $WFACE nic nictype=physical parent=$WFACE
+lxc profile device add ap_p $WFACE nic nictype=physical parent=$WFACE name=$WFACE
 
 echo $WFACE | xargs -i sed -i -e "s/wlan/{}/g" ../templates/interfaces
 
@@ -20,4 +20,4 @@ lxc file push ../templates/interfaces ap/etc/network/interfaces
 lxc file push ../templates/hostapd.conf ap/etc/hostapd/hostapd.conf
 lxc file push ../templates/mec-gw.conf ap/etc/dnsmasq.d/mec-gw.conf
 
-
+lxc restart ap

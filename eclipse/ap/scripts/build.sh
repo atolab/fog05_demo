@@ -3,7 +3,7 @@
 WFACE=$1
 
 lxc profile copy default ap_p
-lxc profile device add ap_p $WFACE nic nitctype=physical parent=$WFACE
+lxc profile device add ap_p $WFACE nic nictype=physical parent=$WFACE
 
 echo $WFACE | xargs -i sed -i -e "s/wlan/{}/g" ../templates/interfaces
 

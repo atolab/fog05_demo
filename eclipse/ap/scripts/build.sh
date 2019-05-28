@@ -7,17 +7,17 @@ lxc profile device add ap_p $WFACE nic nictype=physical parent=$WFACE name=$WFAC
 
 echo $WFACE | xargs -i sed -i -e "s/wlan/{}/g" ../templates/interfaces
 
-lxc launch images:alpine/3.9 ap -p ap_p
+lxc launch images:alpine/3.6 ap -p ap_p
 
 lxc exec ap -- apk update
 lxc exec ap -- apk upgrade
 
-lxc exec ap -- apk add hostapd dnsmasq bridge
+lxc exec ap -- apk add hostapd bridge
 lxc exec ap -- rc-update add hostapd
-lxc exec ap -- rc-update add dnsmasq
+# lxc exec ap -- rc-update add dnsmasq
 
 lxc file push ../templates/interfaces ap/etc/network/interfaces
 lxc file push ../templates/hostapd.conf ap/etc/hostapd/hostapd.conf
-lxc file push ../templates/mec-gw.conf ap/etc/dnsmasq.d/mec-gw.conf
+# lxc file push ../templates/mec-gw.conf ap/etc/dnsmasq.d/mec-gw.conf
 
 lxc restart ap

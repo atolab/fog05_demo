@@ -7,9 +7,9 @@ lxc exec rnis -- apk update
 lxc exec rnis -- apk add tshark iw python3
 lxc exec rnis -- pip3 install paho-mqtt
 
-lxc file push ./templates/rnis webui/etc/init.d/rnis
-lxc file push ./templates/rnis.py webui/root/rnis.py
-lxc file push ./templates/run.sh webui/root/run.sh
+lxc file push ./templates/rnis rnis/etc/init.d/rnis
+lxc file push ./templates/rnis.py rnis/root/rnis.py
+lxc file push ./templates/run.sh rnis/root/run.sh
 
 lxc exec rnis -- chmod +x /etc/init.d/rnis
 lxc exec rnis -- rc-update add rnis

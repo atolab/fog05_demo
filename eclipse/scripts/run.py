@@ -5,7 +5,7 @@ import time
 import json
 
 
-DESC_FOLDER = './descriptors'
+DESC_FOLDER = '../descriptors'
 net_desc = ['vnet_mec.json']
 descs = ['mecp.json','gw.json','mqtt.json','ap.json','rnis.json','webui.json']
 

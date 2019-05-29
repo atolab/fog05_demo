@@ -7,6 +7,7 @@ import json
 
 DESC_FOLDER = '../descriptors'
 net_desc = ['vnet_mec.json']
+#descs = ['mecp.json','gw.json','mqtt.json','ap.json','rnis.json','webui.json']
 descs = ['mecp.json','gw.json','mqtt.json','ap.json','rnis.json','webui.json']
 
 
@@ -34,6 +35,7 @@ def main(nodeid):
         fdu_d = json.loads(read(path_d))
         fdu_id = a.fdu.onboard(fdu_d)
         iid = a.fdu.instantiate(fdu_id, nodeid)
+        print('Instantiated: {}'.format(fdu_d['name']))
         fdus.update({fdu_id: iid})
         time.sleep(1)
 

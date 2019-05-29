@@ -24,14 +24,14 @@ def main(nodeid):
 
     for d in net_desc:
         path_d = os.path.join(DESC_FOLDER,d)
-        netd = read(path_d)
+        netd = json.loads(read(path_d))
         a.network.add_network(netd)
         nets.append(netd['uuid'])
         time.sleep(1)
 
     for d in descs:
         path_d = os.path.join(DESC_FOLDER,d)
-        fdu_d = read(path_d)
+        fdu_d = json.loads(read(path_d))
         fdu_id = a.fdu.onboard(fdu_d)
         iid = a.fdu.instantiate(fdu_id, nodeid)
         fdus.update({fdu_id: iid})

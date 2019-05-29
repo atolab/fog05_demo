@@ -1,0 +1,52 @@
+{
+    "uuid": "1b526aa7-408f-4d63-b58c-9e2dfd9451ed",
+    "name": "test2if",
+    "computation_requirements": {
+        "cpu_arch": "x86_64",
+        "cpu_min_freq": 0.0,
+        "cpu_min_count": 1,
+        "ram_size_mb": 128.0,
+        "storage_size_gb": 5.0
+    },
+    "image": {
+        "uri": "file:///home/ubuntu/mecp.tar.gz",
+        "checksum": "36ba12430f0e1af7c3d3058d52705d73efff84835a84c41f8451bae166bb1113",
+        "format": "tar.gz"
+    },
+    "hypervisor": "LXD",
+    "migration_kind": "LIVE",
+    "depends_on": [],
+    "interfaces": [
+        {
+            "name": "eth0",
+            "is_mgmt": false,
+            "if_type": "EXTERNAL",
+            "mac_address": "be:ef:be:ef:00:01",
+            "virtual_interface": {
+                "intf_type": "BRIDGED",
+                "vpci": "lxdbr0",
+                "bandwidth": 10
+            },
+            "cp_id": ""
+        },
+        {
+            "name": "eth1",
+            "is_mgmt": true,
+            "if_type": "INTERNAL",
+            "mac_address": "be:ef:be:ef:00:02",
+            "virtual_interface": {
+                "intf_type": "VIRTIO",
+                "vpci": "0:0:0",
+                "bandwidth": 10
+            },
+            "cp_id": "9ab82ef2-b445-4273-88e6-acbc705569b0"
+        }
+    ],
+    "io_ports": [],
+    "connection_points": [
+        {
+            "uuid": "9ab82ef2-b445-4273-88e6-acbc705569b0",
+            "pair_id": "e379748f-2430-4759-a524-8a29810d9be5"
+        }
+    ]
+}

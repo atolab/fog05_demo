@@ -1,0 +1,6 @@
+{
+    "uuid": "e379748f-2430-4759-a524-8a29810d9be5",
+    "name": "mec_net",
+    "net_type": "ELAN",
+    "is_mgmt": false
+}

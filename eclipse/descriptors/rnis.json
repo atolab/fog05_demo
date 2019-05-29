@@ -20,10 +20,10 @@
         {
             "name": "eth0",
             "is_mgmt": false,
-            "if_type": "INTERNAL",
+            "if_type": "EXTERNAL",
             "virtual_interface": {
-                "intf_type": "VIRTIO",
-                "vpci": "0:0:0",
+                "intf_type": "BRIDGED",
+                "vpci": "br-e379748f",
                 "bandwidth": 10
             },
             "cp_id": "375cb9d3-ebb4-4dfa-90e0-3635ad27e675"

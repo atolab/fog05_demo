@@ -21,13 +21,12 @@
             "name": "eth0",
             "is_mgmt": false,
             "if_type": "INTERNAL",
-            "mac_address": "be:ef:be:ef:03:01",
             "virtual_interface": {
                 "intf_type": "VIRTIO",
                 "vpci": "0:0:0",
                 "bandwidth": 10
             },
-            "cp_id": "462d527d-9778-4660-add3-006da1c99e29"
+            "cp_id": "375cb9d3-ebb4-4dfa-90e0-3635ad27e675"
         },
         {
             "name": "wlx74da381ab4d4",
@@ -44,7 +43,7 @@
     "io_ports": [],
     "connection_points": [
         {
-            "uuid": "462d527d-9778-4660-add3-006da1c99e29",
+            "uuid": "375cb9d3-ebb4-4dfa-90e0-3635ad27e675",
             "pair_id": "e379748f-2430-4759-a524-8a29810d9be5"
         }
     ]

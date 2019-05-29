@@ -21,7 +21,6 @@
             "name": "eth0",
             "is_mgmt": false,
             "if_type": "EXTERNAL",
-            "mac_address": "be:ef:be:ef:01:01",
             "virtual_interface": {
                 "intf_type": "BRIDGED",
                 "vpci": "lxdbr0",
@@ -33,7 +32,6 @@
             "name": "eth1",
             "is_mgmt": true,
             "if_type": "INTERNAL",
-            "mac_address": "be:ef:be:ef:01:02",
             "virtual_interface": {
                 "intf_type": "VIRTIO",
                 "vpci": "0:0:0",

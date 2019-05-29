@@ -21,7 +21,6 @@
             "name": "eth0",
             "is_mgmt": false,
             "if_type": "INTERNAL",
-            "mac_address": "be:ef:be:ef:02:01",
             "virtual_interface": {
                 "intf_type": "VIRTIO",
                 "vpci": "0:0:0",

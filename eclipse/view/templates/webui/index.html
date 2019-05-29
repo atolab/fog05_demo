@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>5GCity MEC Orchestrator Demo - MEC RINS Service</title>
+    <title>Eclipse fog05 Demo - MEC RNIS Service</title>
 
 
     <link rel="stylesheet" href="css/styles.css">
@@ -32,7 +32,7 @@
                 <img src="pics/logo.png" alt="ADLINK logo" />
             </div>
             <div class="col-md-6">
-                <img src="pics/5GCityLogo.png" height="80" alt="5GCity logo" align="center" />
+                <img src="pics/eclipse.png" height="80" alt="5GCity logo" align="center" />
             </div>
             <div class="col-md-1">
                 <img src="pics/f05_logo.png" height="80" alt="Eclipse fog05 logo" />
@@ -43,16 +43,22 @@
         <br>
         <div class="container">
             <div class="jumbotron">
-                <h1>5GCity MEC Orchestrator and IoT VIM
-                </h1>
-                <h2>RINS Data Viewer</h2>
-                <p>This demo shows integration between NFV and MEC using a couple of ME Apps composed by simple VNFs
-                    that provides a RINS Service and a Viewer of the RINS data</p>
+                <h2>Eclipse fog05 - Fog and MEC IaaS - RNIS Demo</h2>
+                <h3>RNIS Data Viewer</h3>
+                <p>This demo shows the deployment of and MEC Applications and MEC Services using Eclipse fog05</p>
+                <p>Application instantiated using Eclipse fog05</p>
+                <ul>
+                    <li>MEC Platform</li>
+                    <li>Wi-Fi Access Point</li>
+                    <li>MQTT Broker</li>
+                    <li>Wi-Fi RNIS (Radio Network Information Service)</li>
+                    <li>RNIS Data Viewer - This web server</li>
+                </ul>
             </div>
         </div>
 
         <div class="container">
-            <p class="lead">One of 5GCity’s objective is o address the heterogeneity that comes for having compute and
+            <p class="lead">The goal of Eclipse fog05 is to address the heterogeneity that comes for having compute and
                 networking resources at the edge of the network, because of the different virtualisation capabilities
                 that will be present on lamp post or in a cabinet in the street, as well as the need of managing MEC
                 applications as well as NSs in a scenario in which MEC and NFV should work together to enable the best
@@ -74,7 +80,7 @@
                 <div class="col-md-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            <h3 class="panel-title">RINS plot</h3>
+                            <h3 class="panel-title">RNIS plot</h3>
                         </div>
                         <div class="panel-body">
                             <canvas id="rinsChart" width="400" height="100"></canvas>

@@ -4,10 +4,10 @@ body {
 }
 
 .header {
-    background-color: #A3BD65;
+    background-color: #ffffff;
     border-bottom: solid 4px #969fba;
     display: flex;
-    
+
     font-family: 'Ubuntu', sans-serif;
 }
 
@@ -16,7 +16,7 @@ body {
     border-top: solid 4px #5a5858;
 }
 .footer h1{
-    
+
     font-family: 'Ubuntu', sans-serif;
     font-size: 15px;
     font-weight: bold;
@@ -99,3 +99,6 @@ pre {
    color: olive;
    }
 
+/* .panel-heading {
+    background-color: #5E386A
+} */

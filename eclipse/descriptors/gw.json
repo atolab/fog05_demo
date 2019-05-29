@@ -10,7 +10,7 @@
     },
     "image": {
         "uri": "file:///home/ato/eclipse_demo/images/gw.tar.gz",
-        "checksum": "36ba12430f0e1af7c3d3058d52705d73efff84835a84c41f8451bae166bb1113",
+        "checksum": "7212a0fcd9bd5414f5aa77553181b9deb54002caf39f0bb5ca1140365c7323a7",
         "format": "tar.gz"
     },
     "hypervisor": "LXD",

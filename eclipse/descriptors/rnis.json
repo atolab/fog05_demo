@@ -1,0 +1,51 @@
+{
+    "uuid": "b4911d8b-dd85-45a0-889a-6f455963add3",
+    "name": "rnis",
+    "computation_requirements": {
+        "cpu_arch": "x86_64",
+        "cpu_min_freq": 0.0,
+        "cpu_min_count": 1,
+        "ram_size_mb": 128.0,
+        "storage_size_gb": 5.0
+    },
+    "image": {
+        "uri": "file:///home/ato/eclipse_demo/images/rnis.tar.gz",
+        "checksum": "408897e2734de4dd0beae968fd209f9251b2d79a614c049ae10d98ce3117499a",
+        "format": "tar.gz"
+    },
+    "hypervisor": "LXD",
+    "migration_kind": "LIVE",
+    "depends_on": [],
+    "interfaces": [
+        {
+            "name": "eth0",
+            "is_mgmt": false,
+            "if_type": "INTERNAL",
+            "mac_address": "be:ef:be:ef:03:01",
+            "virtual_interface": {
+                "intf_type": "VIRTIO",
+                "vpci": "0:0:0",
+                "bandwidth": 10
+            },
+            "cp_id": "462d527d-9778-4660-add3-006da1c99e29"
+        },
+        {
+            "name": "wlx74da381ab4d4",
+            "is_mgmt": true,
+            "if_type": "EXTERNAL",
+            "virtual_interface": {
+                "intf_type": "PHYSICAL",
+                "vpci": "wlx74da381ab4d4",
+                "bandwidth": 10
+            },
+            "cp_id": ""
+        }
+    ],
+    "io_ports": [],
+    "connection_points": [
+        {
+            "uuid": "462d527d-9778-4660-add3-006da1c99e29",
+            "pair_id": "e379748f-2430-4759-a524-8a29810d9be5"
+        }
+    ]
+}

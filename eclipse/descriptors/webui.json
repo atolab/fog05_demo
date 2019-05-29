@@ -1,0 +1,40 @@
+{
+    "uuid": "f10ed070-479d-465a-a95f-7cfa00a3cbd9",
+    "name": "webui",
+    "computation_requirements": {
+        "cpu_arch": "x86_64",
+        "cpu_min_freq": 0.0,
+        "cpu_min_count": 1,
+        "ram_size_mb": 128.0,
+        "storage_size_gb": 5.0
+    },
+    "image": {
+        "uri": "file:///home/ato/eclipse_demo/images/webui.tar.gz",
+        "checksum": "71d373fa1ec254c67eea2d3a1031b4520eedb615efdc5594f3d167a393909e1b",
+        "format": "tar.gz"
+    },
+    "hypervisor": "LXD",
+    "migration_kind": "LIVE",
+    "depends_on": [],
+    "interfaces": [
+        {
+            "name": "eth0",
+            "is_mgmt": false,
+            "if_type": "INTERNAL",
+            "mac_address": "be:ef:be:ef:04:01",
+            "virtual_interface": {
+                "intf_type": "VIRTIO",
+                "vpci": "0:0:0",
+                "bandwidth": 10
+            },
+            "cp_id": "28d4640b-be22-493e-a53d-5ce4f3105464"
+        }
+    ],
+    "io_ports": [],
+    "connection_points": [
+        {
+            "uuid": "28d4640b-be22-493e-a53d-5ce4f3105464",
+            "pair_id": "e379748f-2430-4759-a524-8a29810d9be5"
+        }
+    ]
+}

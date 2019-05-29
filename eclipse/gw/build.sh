@@ -12,7 +12,7 @@ lxc file push ./templates/dnsmasq.hosts gw/etc/dnsmasq.hosts
 lxc file push ./templates/mec-gw.json gw/etc/awall/optional/
 
 lxc exec gw -- awall enable mec-gw
-lxc exec gw -- yes | awall activate
+lxc exec gw -- sh -c "yes | awall activate"
 
 lxc exec gw -- rc-update add iptables
 lxc exec gw -- rc-update add dnsmasq

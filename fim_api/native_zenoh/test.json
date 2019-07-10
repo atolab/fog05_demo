@@ -1,6 +1,6 @@
 {
-    "uuid": "35942779-0371-4ba4-8610-677d9d5bebb9",
-    "name": "test_native",
+    "uuid": "46153881-1582-4ba4-8610-677d9d5bebb9",
+    "name": "zenoh-broker",
     "computation_requirements": {
         "cpu_arch": "x86_64",
         "cpu_min_freq": 0,
@@ -9,10 +9,8 @@
         "storage_size_gb": 1.0
     },
     "command": {
-        "binary": "/home/ubuntu/zenohd",
-        "args": [
-            "-vv"
-        ]
+        "binary": "/tmp/test.py",
+        "args": []
     },
     "hypervisor": "BARE",
     "migration_kind": "COLD",

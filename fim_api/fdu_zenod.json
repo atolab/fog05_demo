@@ -3,7 +3,7 @@
     "name": "test_zenohd",
     "computation_requirements": {
         "cpu_arch": "arm64",
-        "cpu_min_freq": 0.0,
+        "cpu_min_freq": 0,
         "cpu_min_count": 1,
         "ram_size_mb": 64.0,
         "storage_size_gb": 1.0

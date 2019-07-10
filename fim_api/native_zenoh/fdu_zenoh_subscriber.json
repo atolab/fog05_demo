@@ -1,17 +1,18 @@
 {
-    "uuid": "35942779-0371-4ba4-8610-677d9d5bebb9",
-    "name": "test_native",
+    "uuid": "84bd1106-d84b-4227-8639-4461f728e710",
+    "name": "zenoh_sub",
     "computation_requirements": {
-        "cpu_arch": "x86_64",
+        "cpu_arch": "armv7l",
         "cpu_min_freq": 0,
         "cpu_min_count": 1,
         "ram_size_mb": 64.0,
         "storage_size_gb": 1.0
     },
     "command": {
-        "binary": "/home/ubuntu/zenohd",
+        "binary": "/usr/local/bin/z_sub",
         "args": [
-            "-vv"
+            "tcp/192.168.123.106:7447",
+            "/demo/temperature/orange"
         ]
     },
     "hypervisor": "BARE",

@@ -9,7 +9,7 @@
         "storage_size_gb": 5.0
     },
     "image": {
-        "uri": "file:///home/ubuntu/nginx2ifs.tar.gz",
+        "uri": "file:///home/ubuntu/test.tar.gz",
         "checksum": "72bf24e31db22dcea7419c1a88375104c6f0dc77",
         "format": "tar.gz"
     },
@@ -19,34 +19,17 @@
     "interfaces": [
         {
             "name": "eth0",
-            "is_mgmt": false,
-            "if_type": "INTERNAL",
-            "mac_address": "be:ef:be:ef:00:01",
-            "virtual_interface": {
-                "intf_type": "VIRTIO",
-                "vpci": "0:0:0",
-                "bandwidth": 10
-            },
-            "cp_id": "b33a451c-75e6-48f2-9c8e-420119b1a577"
-        },
-        {
-            "name": "eth1",
             "is_mgmt": true,
             "if_type": "EXTERNAL",
             "mac_address": "be:ef:be:ef:00:02",
             "virtual_interface": {
-                "intf_type": "PHYSICAL",
-                "vpci": "wlan0",
+                "intf_type": "BRIDGED",
+                "vpci": "lxdbr0",
                 "bandwidth": 10
             },
-            "cp_id": "b33a451c-75e6-48f2-9c8e-420119b1a577"
+            "cp_id": ""
         }
     ],
     "io_ports": [],
-    "connection_points": [
-        {
-            "uuid": "b33a451c-75e6-48f2-9c8e-420119b1a577",
-            "vnet_id": "6cc2aa30-1dcf-4c93-a57e-433fd0bd498e"
-        }
-    ]
+    "connection_points": []
 }

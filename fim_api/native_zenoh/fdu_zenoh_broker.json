@@ -1,15 +1,15 @@
 {
-    "uuid": "35942779-0371-4ba4-8610-677d9d5bebb9",
-    "name": "test_native",
+    "uuid": "4ef2b798-ea61-4a52-81ee-c67d52791845",
+    "name": "zenoh_broker",
     "computation_requirements": {
-        "cpu_arch": "x86_64",
+        "cpu_arch": "armv7l",
         "cpu_min_freq": 0,
         "cpu_min_count": 1,
         "ram_size_mb": 64.0,
         "storage_size_gb": 1.0
     },
     "command": {
-        "binary": "/home/ubuntu/zenohd",
+        "binary": "/usr/local/bin/zenohd",
         "args": [
             "-vv"
         ]

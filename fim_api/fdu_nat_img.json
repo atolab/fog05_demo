@@ -1,6 +1,6 @@
 {
-    "uuid": "35942779-0371-4ba4-8610-677d9d5bebb9",
-    "name": "test_native",
+    "uuid": "ac609475-b192-406c-92c1-d64cfce90aa6",
+    "name": "test_ping",
     "computation_requirements": {
         "cpu_arch": "x86_64",
         "cpu_min_freq": 0,
@@ -8,10 +8,15 @@
         "ram_size_mb": 64.0,
         "storage_size_gb": 1.0
     },
+    "image": {
+        "uri": "file:///tmp/z.zip",
+        "checksum": "2935701ae23b433966a5eed237de981257b8af60",
+        "format": "zip"
+    },
     "command": {
-        "binary": "/home/ubuntu/zenohd",
+        "binary": "zenohd",
         "args": [
-            "-vv"
+            "-v"
         ]
     },
     "hypervisor": "BARE",

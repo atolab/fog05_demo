@@ -1,17 +1,19 @@
 {
-    "uuid": "35942779-0371-4ba4-8610-677d9d5bebb9",
-    "name": "test_native",
+    "uuid": "d0001e97-53ff-4751-be0a-c163f475f7d4",
+    "name": "zenoh_sensors",
     "computation_requirements": {
-        "cpu_arch": "x86_64",
+        "cpu_arch": "armv7l",
         "cpu_min_freq": 0,
         "cpu_min_count": 1,
         "ram_size_mb": 64.0,
         "storage_size_gb": 1.0
     },
     "command": {
-        "binary": "/home/ubuntu/zenohd",
+        "binary": "/usr/bin/python3",
         "args": [
-            "-vv"
+            "-u",
+            "/usr/local/bin/temperature.py",
+            "tcp/192.168.123.106:7447"
         ]
     },
     "hypervisor": "BARE",

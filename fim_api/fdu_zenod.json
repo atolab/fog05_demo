@@ -1,5 +1,5 @@
 {
-    "uuid": "d0001e97-53ff-4751-be0a-c163f475f7d4",
+    "id": "test_zenohd",
     "name": "test_zenohd",
     "computation_requirements": {
         "cpu_arch": "arm64",

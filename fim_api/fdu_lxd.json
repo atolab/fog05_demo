@@ -1,5 +1,5 @@
 {
-    "uuid": "1e57bb0e-cb41-4b23-bca3-1fa761a83c02",
+    "id": "lxd_example_fdu",
     "name": "test_1",
     "computation_requirements": {
         "cpu_arch": "x86_64",
@@ -13,6 +13,7 @@
         "checksum": "",
         "format": ""
     },
+    "storage": [],
     "hypervisor": "LXD",
     "migration_kind": "COLD",
     "interfaces": [
@@ -22,19 +23,13 @@
             "if_type": "INTERNAL",
             "mac_address": "be:ef:be:ef:00:01",
             "virtual_interface": {
-                "intf_type": "VIRTIO",
-                "vpci": "6cc2aa30-1dcf-4c93-a57e-433fd0bd498e",
+                "intf_type": "BRIDGED",
+                "vpci": "virbr0",
                 "bandwidth": 10
-            },
-            "cp_id": "a47a8819-72e5-4b4e-86fd-fc30c9fda68b"
+            }
         }
     ],
     "io_ports": [],
-    "connection_points": [
-        {
-            "uuid": "a47a8819-72e5-4b4e-86fd-fc30c9fda68b",
-            "pair_id": "6cc2aa30-1dcf-4c93-a57e-433fd0bd498e"
-        }
-    ],
+    "connection_points": [],
     "depends_on": []
 }

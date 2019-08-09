@@ -1,5 +1,5 @@
 {
-    "uuid": "ac609475-b192-406c-92c1-d64cfce90aa6",
+    "uuid": "test_zenoh_ping",
     "name": "test_zenohd",
     "computation_requirements": {
         "cpu_arch": "armv7l",

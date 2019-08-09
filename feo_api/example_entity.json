@@ -1,0 +1,33 @@
+{
+    "id": "one-fdu-entity",
+    "name": "test_entity",
+    "description": "this is a simple entity composed by one entity containers",
+    "atomic_entities": [
+        {
+            "id": "one-fdu-atomic-entity",
+            "index": 1
+        }
+    ],
+    "virtual_links": [
+        {
+            "id": "datanet-vl",
+            "name": "datanet",
+            "is_mgmt": false,
+            "ip_configuration": {
+                "ip_version": "IPV4",
+                "subnet": "192.168.123.0/24",
+                "gateway": "192.168.123.1",
+                "dhcp_enable": true,
+                "dhcp_range": "192.168.123.2,192.168.123.100",
+                "dns": "8.8.8.8,8.8.4.4"
+            },
+            "cps": [
+                {
+                    "component_id_ref": "one-fdu-atomic-entity",
+                    "component_index_ref": 1,
+                    "cp_id": "external-cp1"
+                }
+            ]
+        }
+    ]
+}

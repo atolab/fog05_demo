@@ -1,4 +1,5 @@
 from fog05 import FIMAPI
+from fog05.interfaces.FDU import FDU
 import uuid
 import json
 import sys
@@ -23,26 +24,28 @@ def main(ip, fdufile, netfile):
     for n in nodes:
         print('UUID: {}'.format(n))
 
-    fdu_d = json.loads(read_file(fdufile))
+    fdu_d = FDU(json.loads(read_file(fdufile)))
     net_d = json.loads(read_file(netfile))
 
-    e_uuid = fdu_d.get('uuid')
     n_uuid = net_d.get('uuid')
 
     input("Press enter to create network")
     a.network.add_network(net_d)
 
 
-    n1 = 'a2d358aa-af2b-42cb-8d23-a89e88b97e5c' #fosmed
+    #n1 = 'a2d358aa-af2b-42cb-8d23-a89e88b97e5c' #fosmed
+    n1 = '4a560914-1c3e-4966-9fa8-7f0acc903253' #nuc
     #n1 = 'a4589fae-0493-40cf-b976-2d03020d060d' #foskvm
-    n1 = '53712df2-9649-4a21-be2e-80eed00ff9ce' #ubuntuvm1
-    n1 = 'de8c2f1c-9414-48ec-8400-a324cb1e6612' #ubuntuvm2
-    n1 = 'd07b095f-7948-4f9b-95cc-c61029f6c3c3' #fosdbg
+    # n1 = '53712df2-9649-4a21-be2e-80eed00ff9ce' #ubuntuvm1
+    # n1 = 'de8c2f1c-9414-48ec-8400-a324cb1e6612' #ubuntuvm2
+    # n1 = 'd07b095f-7948-4f9b-95cc-c61029f6c3c3' #fosdbg
 
     input('press enter to onboard descriptor')
-    a.fdu.onboard(fdu_d)
-    input('Press enter to define')
-    intsid = a.fdu.instantiate(e_uuid, n1)
+    res = a.fdu.onboard(fdu_d)
+    e_uuid = res.get_uuid()
+    input('Press enter to intantiate')
+    inst_info = a.fdu.instantiate(e_uuid, n1)
+    instid = inst_info.get_uuid()
 
 
     # input('Press enter to stop')
@@ -53,12 +56,15 @@ def main(ip, fdufile, netfile):
     # a.entity.undefine(e_uuid, n1)
 
     # input('Press enter to migrate')
+    input('Press get info')
+    info = a.fdu.instance_info(instid)
+    print(info.to_json())
 
     #res = a.entity.migrate(e_uuid, i_uuid, n1, n2)
     #print('Res is: {}'.format(res))
-    input('Press enter to remove')
+    input('Press enter to terminate')
 
-    a.fdu.terminate(intsid)
+    a.fdu.terminate(instid)
     a.fdu.offload(e_uuid)
     input("Press enter to remove network")
     a.network.remove_network(n_uuid)

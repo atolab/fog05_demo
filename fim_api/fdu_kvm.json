@@ -1,6 +1,6 @@
 {
-    "uuid": "236ef5c1-a24b-47db-bdba-d523a9ca7ac1",
-    "name": "test",
+    "id": "kvm_example_fdu",
+    "name": "test_1",
     "computation_requirements": {
         "cpu_arch": "x86_64",
         "cpu_min_freq": 0,
@@ -27,14 +27,15 @@
                 "vpci": "0:0:0",
                 "bandwidth": 10
             },
-            "cp_id": "9bc19c95-b407-4c07-9352-d3f2a94321df"
+            "cp_id": "fdu-cp1"
         }
     ],
     "io_ports": [],
     "connection_points": [
         {
-            "uuid": "9bc19c95-b407-4c07-9352-d3f2a94321df",
-            "vnet_id": "6cc2aa30-1dcf-4c93-a57e-433fd0bd498e"
+            "id": "fdu-cp1",
+            "name": "fdu-cp1",
+            "vld_ref": "6cc2aa30-1dcf-4c93-a57e-433fd0bd498e"
         }
     ]
 }

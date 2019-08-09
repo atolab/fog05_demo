@@ -1,9 +1,10 @@
 from fog05 import FIMAPI
+from fog05.interfaces.FDU import FDU
 import uuid
 import json
 import sys
 import os
-
+import code
 
 def read_file(filepath):
     with open(filepath, 'r') as f:
@@ -23,22 +24,45 @@ def main(ip, fdufile):
     for n in nodes:
         print('UUID: {}'.format(n))
 
-    fdu_d = json.loads(read_file(fdufile))
-
-    e_uuid = fdu_d.get('uuid')
+    fdu_d = FDU(json.loads(read_file(fdufile)))
 
 
-    n1 = 'a2d358aa-af2b-42cb-8d23-a89e88b97e5c' #fos med
+
+    n1 = '4a560914-1c3e-4966-9fa8-7f0acc903253' #nuc
 
 
     input('press enter to onboard descriptor')
-    a.fdu.onboard(fdu_d)
-    input('Press enter to instantiate')
-    intsid = a.fdu.instantiate(e_uuid, n1)
+    res = a.fdu.onboard(fdu_d)
+    print(res.to_json())
+    e_uuid = res.get_uuid()
+    # code.interact(local=locals())
+
+
+
+    input('Press enter to define')
+    inst_info = a.fdu.define(e_uuid, n1)
+    print(inst_info.to_json())
+    instid = inst_info.get_uuid()
+
+    input('Press enter to configure')
+    a.fdu.configure(instid)
+
+    input('Press enter to start')
+    a.fdu.start(instid)
+
+    input('Press get info')
+    info = a.fdu.instance_info(instid)
+    print(info.to_json())
+
+    input('Press enter to stop')
+    a.fdu.stop(instid)
+
+    input('Press enter to clean')
+    a.fdu.clean(instid)
 
     input('Press enter to remove')
 
-    a.fdu.terminate(intsid)
+    a.fdu.undefine(instid)
     a.fdu.offload(e_uuid)
 
     exit(0)

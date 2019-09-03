@@ -9,7 +9,7 @@
         "storage_size_gb": 5.0
     },
     "image": {
-        "uri": "lxd://alpine/3.6",
+        "uri": "lxd://alpine/edge",
         "checksum": "",
         "format": ""
     },

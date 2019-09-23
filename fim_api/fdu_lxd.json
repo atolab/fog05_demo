@@ -24,7 +24,7 @@
             "mac_address": "be:ef:be:ef:00:01",
             "virtual_interface": {
                 "intf_type": "BRIDGED",
-                "vpci": "virbr0",
+                "vpci": "lxdbr0",
                 "bandwidth": 10
             }
         }

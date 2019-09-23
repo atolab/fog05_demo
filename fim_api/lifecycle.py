@@ -34,7 +34,7 @@ def main(ip, fdufile, netfile):
 
     #n1 = 'a2d358aa-af2b-42cb-8d23-a89e88b97e5c' #fosmed
     n1 = '4a560914-1c3e-4966-9fa8-7f0acc903253' #nuc
-    n1 = '53712df2-9649-4a21-be2e-80eed00ff9ce' #ubuntuvm1
+    # n1 = '53712df2-9649-4a21-be2e-80eed00ff9ce' #ubuntuvm1
     #n1 = 'a4589fae-0493-40cf-b976-2d03020d060d' #foskvm
     # n1 = '53712df2-9649-4a21-be2e-80eed00ff9ce' #ubuntuvm1
     # n1 = 'd07b095f-7948-4f9b-95cc-c61029f6c3c3' #fosdbg

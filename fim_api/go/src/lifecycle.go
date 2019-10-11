@@ -16,9 +16,9 @@ func check(e error) {
 
 }
 
-const n1 = "4a560914-1c3e-4966-9fa8-7f0acc903253" //nuc
+// const n1 = "4a560914-1c3e-4966-9fa8-7f0acc903253" //nuc
 
-// const n1 = "53712df2-9649-4a21-be2e-80eed00ff9ce" //ubuntuvm1local
+const n1 = "53712df2-9649-4a21-be2e-80eed00ff9ce" //ubuntuvm1local
 
 func main() {
 	args := os.Args[1:]
@@ -36,8 +36,24 @@ func main() {
 	data, err := ioutil.ReadFile(args[1])
 	check(err)
 
-	fduDescriptor := fog05.FDU{}
+	var fduDescriptor fog05.FDU
 	json.Unmarshal(data, &fduDescriptor)
+
+	data, err = ioutil.ReadFile(args[2])
+	check(err)
+
+	var vNetDescriptor fog05.VirtualNetwork
+	json.Unmarshal(data, &vNetDescriptor)
+
+	fmt.Printf("Press enter to create network\n")
+	bufio.NewReader(os.Stdin).ReadBytes('\n')
+
+	err = api.Network.AddNetwork(vNetDescriptor)
+	check(err)
+	vNetR, err := api.Network.AddNetworkToNode(n1, vNetDescriptor)
+	check(err)
+
+	fmt.Printf("Result of Network creation\n%+v\n", vNetR)
 
 	fmt.Printf("Press enter to onboard descriptor\n")
 	bufio.NewReader(os.Stdin).ReadBytes('\n')
@@ -100,4 +116,10 @@ func main() {
 
 	_, err = api.FDU.Offload(fID)
 	check(err)
+
+	_, err = api.Network.RemoveNetworkFromNode(n1, vNetR.UUID)
+	check(err)
+	err = api.Network.RemoveNetwork(vNetR.UUID)
+	check(err)
+
 }

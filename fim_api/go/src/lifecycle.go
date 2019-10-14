@@ -16,9 +16,9 @@ func check(e error) {
 
 }
 
-// const n1 = "4a560914-1c3e-4966-9fa8-7f0acc903253" //nuc
+const n1 = "4a560914-1c3e-4966-9fa8-7f0acc903253" //nuc
 
-const n1 = "53712df2-9649-4a21-be2e-80eed00ff9ce" //ubuntuvm1local
+// const n1 = "53712df2-9649-4a21-be2e-80eed00ff9ce" //ubuntuvm1local
 
 func main() {
 	args := os.Args[1:]
@@ -116,6 +116,9 @@ func main() {
 
 	_, err = api.FDU.Offload(fID)
 	check(err)
+
+	fmt.Printf("Press enter to Remove Network\n")
+	bufio.NewReader(os.Stdin).ReadBytes('\n')
 
 	_, err = api.Network.RemoveNetworkFromNode(n1, vNetR.UUID)
 	check(err)

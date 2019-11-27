@@ -8,11 +8,12 @@ import json
 
 DESC_FOLDER = '.'
 net_desc = []
-descs = [
-        ('fdu_detect_faces.json','4a560914-1c3e-4966-9fa8-7f0acc903253'),
-        ('fdu_display_faces.json','4a560914-1c3e-4966-9fa8-7f0acc903253'),
-        ('fdu_recognize_faces.json','4a560914-1c3e-4966-9fa8-7f0acc903253')
-    ]
+#descs = [
+#        ('fdu_detect_faces.json','4a560914-1c3e-4966-9fa8-7f0acc903253'),
+#        ('fdu_display_faces.json','4a560914-1c3e-4966-9fa8-7f0acc903253'),
+#        ('fdu_recognize_faces.json','4a560914-1c3e-4966-9fa8-7f0acc903253')
+#    ]
+descs = [('fdu_test.json','1d6407ab-d1e7-e478-1bc2-7d4f5d77666b')]
 def read_file(filepath):
     with open(filepath, 'r') as f:
         data = f.read()
